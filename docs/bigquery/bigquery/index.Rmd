@@ -1,0 +1,50 @@
+---
+title: "Bigquery Data Warehouse"
+linkTitle: "Bigquery Data Warehouse"
+weight: 1
+description: >
+  This section describes the OmicIDX Bigquery data warehouse.
+---
+
+**WORK-IN-PROGRESS**
+
+## SQL Primer
+
+Structured Query Language (SQL, pronounced "sequel"), is the lingua franca for interacting with databases. Some tutorials for working with SQL....
+
+## What is Bigquery?
+
+Bigquery is a cloud database, data warehouse, and analytics platform and is hosted by Google in
+the cloud. 
+
+Navigate to the [Bigquery dataset on Google Cloud Platform](https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&folder&organizationId&p=isb-cgc-01-0006&d=omicidx&page=dataset).
+
+
+## Usage
+
+Users interact with Bigquery in one of three ways:
+
+1. 
+
+### One-time setup
+
+The Bigquery console is an online portal that allows basic queries and
+data exploration of BigQuery datasets. Upon opening the OmicIDX
+BigQuery link, the console should open with the OmicIDX dataset
+already available in the dataset window.
+
+```{r bigquerylanding, fig.cap='(ref:bigquerylanding)', out.width='100%'}
+knitr::include_graphics('bigquery_landing.png')
+```
+![bigquery](bigquery_landing.png)
+
+
+
+**NOTICE**: To keep the OmicIDX project in the dataset browser, click the **pin project** button.
+
+```{r pinds, fig.cap='(ref:pinds)', out.width='100%'}
+knitr::include_graphics('bigquery_pin.png')
+```
+
+
+![bigquery](bigquery_pin.png)
