@@ -579,48 +579,5 @@ the &lt;strong&gt;pin project&lt;/strong&gt; button.&lt;/p&gt;
       </description>
     </item>
     
-    <item>
-      <title>Docs: Developer documentation</title>
-      <link>/omicidx-docs/docs/developer-docs/developer-notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/omicidx-docs/docs/developer-docs/developer-notes/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The project is hosted under the Github &lt;em&gt;omicidx&lt;/em&gt; organization.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/omicidx&#34;&gt;https://github.com/omicidx&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Relationships between projects….&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;parsers&#34;&gt;Parsers&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34;&gt;https://github.com/omicidx/omicidx-parsers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;builder&#34;&gt;Builder&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/omicidx/omicidx-builder&#34;&gt;https://github.com/omicidx/omicidx-builder&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;docs&#34;&gt;Docs&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/omicidx/omicidx-docs&#34;&gt;https://github.com/omicidx/omicidx-docs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;rest-api&#34;&gt;REST API&lt;/h2&gt;
-&lt;h3 id=&#34;server&#34;&gt;Server&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/omicidx/omicidx-api&#34;&gt;https://github.com/omicidx/omicidx-api&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;clients&#34;&gt;Clients&lt;/h3&gt;
-&lt;h2 id=&#34;graphql&#34;&gt;GraphQL&lt;/h2&gt;
-&lt;h3 id=&#34;server-1&#34;&gt;Server&lt;/h3&gt;
-&lt;h3 id=&#34;clients-1&#34;&gt;Clients&lt;/h3&gt;
-
-      </description>
-    </item>
-    
   </channel>
 </rss>
