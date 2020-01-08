@@ -3,39 +3,14 @@ title: "Contribution Guidelines"
 linkTitle: "Contribution Guidelines"
 weight: 9
 description: >
-  How to contribute to Docsy
+  How to contribute to OmicIDX
 ---
 
-Docsy is an open source project and we love getting patches and contributions to make Docsy and its docs even better.
+OmicIDX is an open source project and we love getting patches and contributions to make the project and its docs even better.
 
-## Contributing to Docsy
+## Contributing
 
-The Docsy theme itself lives in <https://github.com/google/docsy>.
-
-### Contributor License Agreement
-
-Contributions to this project must be accompanied by a Contributor License
-Agreement. You (or your employer) retain the copyright to your contribution;
-this simply gives us permission to use and redistribute your contributions as
-part of the project. Head over to <https://cla.developers.google.com/> to see
-your current agreements on file or to sign a new one.
-
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
-
-### Code reviews
-
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
-
-### Previewing your changes
-
-As Docsy is a theme rather than a site, you can't serve the theme directly to check your changes work. Instead use your updated local theme in a local copy of the Docsy example site (copy or make your changes in the `themes/docsy` directory) and [preview](/docs/deployment/) from there. Alternatively, clone the [Docsy theme repo](https://github.com/google/docsy) and test your changes in a local copy of this site, as described [below](#previewing-your-changes-locally).
-
-### Community guidelines
+The code and documentation live in multiple repositories at the [OmicIDX Github organization]. The [Developer Documentation](/docs/developer) gives details of the individual repositories, their contents, and role in the OmicIDX ecosystem.
 
 This project follows
 [Google's Open Source Community Guidelines](https://opensource.google.com/conduct/).

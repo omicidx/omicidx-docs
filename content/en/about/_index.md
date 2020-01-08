@@ -1,5 +1,5 @@
 ---
-title: About Docsy
+title: About the OmicIDX
 linkTitle: About
 menu:
   main:
@@ -7,131 +7,44 @@ menu:
 layout: docs
 ---
 
-{{% blocks/cover title="About Docsy" height="auto" %}}
+{{% blocks/cover title="About OmicIDX" height="auto" %}}
 
-Docsy is a pre-configured Hugo theme that provides the core features and behaviors needed to create a technical documentation site. Use Docsy to set up your documentation website, including an optional Blog section, and then spend your time focusing on authoring technical content. Depending on how you choose to configure Docsy and whether you use a hosting service that supports continuous builds, you can even just add your Markdown or HTML content file into a folder on your source repository, and then sit back while it automatically gets added to your site - complete with updated menus.
+The OmicIDX is an ecosystem that treats omics metadata *as data*. We collect metadata from omics repositories, process it into computable forms, and make it available for search, analysis, bulk processing, and for integration with additional data resources. 
 
 Read on to find out more, or visit our [documentation](/docs/) to get started!
+
 {{% /blocks/cover %}}
 
 {{% blocks/section type="section" color="primary" %}}
-## So what’s a technical documentation site?
 
-A technical documentation site is a website that your users can visit to find the documentation for your technical project.  Your documentation set contains all the information you think your users might need to engage with your project, from overviews that help them understand what the project is for, to instructions for specific tasks. Depending on the size of the project, a documentation set can be a page or two or an entire “book” with different types of information.
+## What does OmicIDX provide?
 
-**Most users don’t want to have to spend much time looking at docs - they want to try your great project!** So how do you make sure your technical documentation set gives users what they need to easily understand your project and get things done? We think a good technical documentation set should be:
+There are a number of websites and projects that focus on omics metadata search. The OmicIDX project can be used for enhanced search (see Bigquery and Web API documentation), but an additional and key goal is to provide omics metadata in forms that enable *data science*. Natural language processing, bulk data mining, mapping to ontologies, or enrichment through linked data approaches are all applications we aim to enable. 
 
-*   **Reliable**: Is it true?
-*   **Comprehensive**: Does it have all the information your target users might need?
-*   **Well-organized and navigable**: Can the user find the information they need? Are similar types of information (all the information about a feature, all your reference information) grouped together?
+OmicIDX data resources are updated monthly or more frequently (depending on data source). In practice, we access, parse, and organize disparate omics metadata into JSON format and provide the results as:
 
-If you have users around the world, you might also want to provide your content in multiple languages, and if you have an open source project, you’ll probably want your users to be able to contribute to the docs.
+- Downloadable files, suitable for bulk processing with R, python, or even to load to relational or NoSQL databases.
+- Bigquery tables, ideal for performant data mining and for "joining" to other public or private datasets.
+- A high performance web application programming interface (API), for language-agnostic search, querying, and data mining.
 
-Once you have your content, you use a technical documentation site to publish your technical documentation set online for your users. In addition to your documentation, your site might also contain material like contact information, a blog, or information about how to contribute to the project.
+We develop all code to accomplish these tasks in the open. Contributions and reuse are welcome and encouraged!
+
 {{% /blocks/section %}}
 
 {{% blocks/section type="section" color="white" %}}
-## How does Docsy help?
 
-Particularly when working with open source projects, it can be difficult to figure out how to turn all your product knowledge into a website that helps and engages your users. **Enter Docsy!**
+## We do the dirty work of omics data collection so you don't have to.
 
-Docsy gives you a theme for the [Hugo](https://gohugo.io/) static site generator, an established open source tool that builds ready-to-serve websites from a set of theme and content files. The Docsy theme provides you with useful stuff for a technical documentation site that *isn’t* your own content:
+We deal with some of the nitty-gritty details of collecting and consolidating omics metadata, reducing bottlenecks and clearing hurdles. Omics metadata stored by the repository are not always convenient to access in bulk. For example, NCBI GEO metadata are not available as a single "dump" file, necessitating a "crawl" of the site to get all available metadata. A wholistic view of a single resource, such as a biological sample, may require metadata from multiple repositories. In many cases, metadata from a single sample may be non-duplicative across repositories. Even when bulk "dumps" of metadata are available, such resources may be incomplete with respect to the information available from other sources, such as SRA metadata dumps. Gathering complete publicly available metadata requires additional work.
 
-<table>
-  <tr>
-   <td><strong>Page layouts optimized for different content types</strong>
-   </td>
-   <td>Navigation, page menus, headers, landing pages, blog snippets, feedback links - you just provide the content.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Autogenerated navigation</strong>
-   </td>
-   <td>Organize your docs in logical folders and get instantly updated navigation to help your users find them.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Language switchers</strong>
-   </td>
-   <td>Builds on Hugo’s multi-language support to make it easy to create a site in multiple languages.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Feedback, contribution, and contact links</strong>
-   </td>
-   <td>Let your users file issues and edit docs with a single click, or follow contact links to join you on Slack, Twitter, or mailing lists.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Custom shortcodes</strong>
-   </td>
-   <td>Reusable snippets of HTML you can use to create alerts, image boxes, landing page blocks, and more.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Easy customization</strong>
-   </td>
-   <td>Use the theme as-is for a basic, clean design, or update a file or two to get your own look.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Simple previews and deployment</strong>
-   </td>
-   <td>Because Docsy is a Hugo theme, you get all the advantages of building with Hugo - simple, fast local previews, and, depending on your deployment options, continuous deployment from Github or other Git providers.
-   </td>
-  </tr>
-</table>
-
-### Simple authoring and publishing
-
-Author your content in the Markdown or HTML and then immediately test it with Hugo's local server. Once you are ready to
-publish, add that content to your project and deploy it to your site using any of Hugo’s supported options. 
-[Learn more...](/docs/deployment/)
-
-### Built-in integration with common tools
-
-The Docsy template currently includes built-in integration with the following tools:
-
-* [**GitHub**](https://github.com): Get in-page links directly to your GitHub repo and provide your users with a
-   convenient pathway to providing feedback, opening issues, and even suggesting changes through Pull Requests.
-* [**Google Analytics**](https://analytics.google.com/analytics/web/): Easily connect your Google Analytics account to your 
-   site.
-* [**Google Custom Search**](https://cse.google.com/cse/): Use Google Custom Search for in-site search queries, or 
-  configure your site to search the web.
-* [**Algolia DocSearch**](https://community.algolia.com/docsearch/): Let your users search your site with Algolia DocSearch.
-* [**Lunr**](https://lunrjs.com/): Local indexing and search for your site without the need for external search services.
-
-### Make it your own
-
-You can configure the Docsy theme as much or as little as you like, anything from changing the colours and images to adding your own type of page layout. [Learn more...](docs/adding-content/lookandfeel/)
-
-### Get organized
-
-We believe a well-organized documentation set can really help your users find the information they need, when they need it - whether it’s a “Hello World” tutorial when they’re starting out or a single core task they need to do to finish a complicated app. We also believe that having well-organized docs help you create comprehensive docs, as it’s easier to see when you’re missing something important. [Learn more...](/docs/best-practices/organizing-content/)
-
-Docsy also provides autogenerated site navigation based on how you organize your source files, so once you’ve organized your docs in folders in Github or other source control, you’ve got menus for your users to quickly reach the doc they need. [Learn more...](/docs/adding-content/navigation/)
-
-
-### Keep up to date
-
-Spend time setting up your technical documentation site once, and then focus on what you do best. We work closely with 
-the Hugo team and have individuals actively maintaining the Docsy theme. You can easily get and 
-apply Docsy updates to your site, as well as open feature requests to improve the 
-template, or even add new behaviors. [Learn more...](/docs/updating/)
-
-
-### Focus on great content
-
-Because Docsy helps you create and serve a well-organized, navigable technical documentation set, it frees you up to create and maintain great reliable, comprehensive content that your users can enjoy and trust.
 {{% /blocks/section %}}
+
 {{% blocks/section type="section" color="primary" %}}
-## What's next for Docsy?
 
-Docsy is an open source project and we love getting patches and contributions to make Docsy and its docs even better. We hope to continue to make improvements to the theme along with the Docsy community.
+## What's next for OmicIDX?
 
-Visit our [Issues](https://github.com/google/docsy/issues) to see what we're currently working on. If there's something you'd like to see in Docsy, please create an issue yourself - or assign yourself an issue if you'd like to fix or add something! See our [contribution guidelines](/docs/contribution-guidelines/) for more information.
+Visit our [Github project](https://github.com/omicidx) to see what we're currently working on. If there's something you'd like to see in OmicIDX, please create an issue yourself - or assign yourself an issue if you'd like to fix or add something! See our [contribution guidelines](/docs/contribution-guidelines/) for more information.
 
-You can find out how to update your site to the latest version of Docsy in [Keeping the theme up to date](/docs/updating/).
 {{% /blocks/section %}}
 
 
