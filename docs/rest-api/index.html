@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.62.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Docsy</title><meta property="og:title" content="" />
+<meta property="og:description" content="The REST API RESTful Concepts Before focusing on any jargon or getting hung up on semantics, in the case of the OmicIDX REST API, three components to the system are important.
+The first is that REST systems are typically composed of resources. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/rest-api/" />
+<meta property="og:site_name" content="Docsy" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content="The REST API RESTful Concepts Before focusing on any jargon or getting hung up on semantics, in the case of the OmicIDX REST API, three components to the system are important.
+The first is that REST systems are typically composed of resources. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on.">
+
+<meta itemprop="wordCount" content="4107">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="The REST API RESTful Concepts Before focusing on any jargon or getting hung up on semantics, in the case of the OmicIDX REST API, three components to the system are important.
+The first is that REST systems are typically composed of resources. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on."/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.db34ab3545f17321a92521e01b76d0bce6aa66ee283d02a334a6695523e371c9.css" as="style">
+<link href="/scss/main.min.db34ab3545f17321a92521e01b76d0bce6aa66ee283d02a334a6695523e371c9.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+    <title>Docsy</title>
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zM197.0804 232.033c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zM197.0839 232.0372c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zM197.0839 232.0372c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zM197.0804 177.6188c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zM197.0839 177.623c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zM197.0839 177.623c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zM197.5309 286.4723c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zM197.5344 286.4765c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zM197.5344 286.4765c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zM197.0804 340.5784c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zM197.0839 340.5826c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zM197.0839 340.5826c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="text-uppercase font-weight-bold">Docsy</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://example.docsy.dev" target="_blank" ><span>Example Site</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/google/docsy/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  data-offline-search-index-json-url="/offline-search-index.ec30cb9501e29fee1a719e8f3e87608e61af94557ec9a642e6ccd437fc3c567306b592c1896e98fc6c084206e1ddea57355189a0111c19d75ae082f77b700f82.json"
+>
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  data-offline-search-index-json-url="/offline-search-index.ec30cb9501e29fee1a719e8f3e87608e61af94557ec9a642e6ccd437fc3c567306b592c1896e98fc6c084206e1ddea57355189a0111c19d75ae082f77b700f82.json"
+>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting Started</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-started">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/adding-content/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Content and Customization</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsadding-content">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentcontent" href="/docs/adding-content/content/">Adding Content</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentlookandfeel" href="/docs/adding-content/lookandfeel/">Look and Feel</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentnavigation" href="/docs/adding-content/navigation/">Navigation and Search</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentshortcodes" href="/docs/adding-content/shortcodes/">Docsy Shortcodes</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contenticonsimages" href="/docs/adding-content/iconsimages/">Logos and Images</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentfeedback" href="/docs/adding-content/feedback/">Analytics and User Feedback</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsadding-contentrepository-links" href="/docs/adding-content/repository-links/">Repository Links</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/open-web-api/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Open Web API</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsopen-web-api">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsopen-web-apirest-api" href="/docs/open-web-api/rest-api/">Background</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/language/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Multi-language Support</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docslanguage">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/deployment/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Previews and Deployment</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsdeployment">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsexamples">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/updating/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Updating Docsy</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsupdating">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/best-practices/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Best Practices</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsbest-practices">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbest-practicessite-guidance" href="/docs/best-practices/site-guidance/">Hugo Content Tips</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbest-practicesorganizing-content" href="/docs/best-practices/organizing-content/">Organizing Your Content</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/contribution-guidelines/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Contribution Guidelines</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docscontribution-guidelines">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsrest-api" href="/docs/rest-api/"></a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/google/docsy/edit/master/userguide/content/en/docs/rest-api.html" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/google/docsy/issues/new?title=" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/rest-api/"></a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1></h1>
+	
+	
+
+
+<div id="restapi" class="section level1">
+<h1>The REST API</h1>
+<div id="restful-concepts" class="section level2">
+<h2>RESTful Concepts</h2>
+<p>Before focusing on any jargon or getting hung up on semantics, in the
+case of the OmicIDX REST API, three components to the system are
+important.</p>
+<p>The first is that REST systems are typically composed of
+<em>resources</em>. Any information that can be named can be a resource: a
+document or image, a temporal service, a collection of other
+resources, a non-virtual object (e.g. a person), and so on. In the
+OmicIDX case, typical resources are things like:</p>
+<ul>
+<li>SRA Runs</li>
+<li>SRA Studies</li>
+<li>Biosample Sample records</li>
+<li>SRA Experiments</li>
+<li>SRA Samples</li>
+<li>GEO Platforms</li>
+<li>GEO Samples</li>
+<li>GEO Series (studies)</li>
+</ul>
+<p>REST uses a resource identifier to “name” the particular resource
+involved in an interaction. In OmicIDX, these
+resource identifiers are typically accessions, like <em>SRR000273</em>,
+<em>SRX000273</em>, or <em>SAMND00000001</em>.</p>
+<p>A REST API accesses <em>resources</em> via <em>http</em> calls. For example,
+to access a specific SRA study record, one can use a URL like:</p>
+<p><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP014892" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP014892</a></p>
+<p>Accessing the URL from the linux command-line program using a program
+like <code>curl</code> leads to facile programmatic access. More on programmatic
+access follows.</p>
+<p>REST is acronym for <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer. It is
+architectural style for distributed systems and was first presented by
+Roy Fielding in 2000 in his <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">famous dissertation</a>.</p>
+</div>
+<div id="retrieving-records-by-accession" class="section level2">
+<h2>Retrieving records by accession</h2>
+<p>All of the common public omics data repositories include <em>accessions</em>
+for their records. These accessions serve as keys in <em>OmicIDX</em>, so
+they can be reused easily for quick lookup of records. When the
+accession is known (such as when you find the accession in a pubmed
+abstract), retrieving the metadata for that accession is a common
+task. OmicIDX uses accessions from the original database, so eee table
+<a href="#tab:tab1">1</a> for examples of what to look for.</p>
+<table>
+<caption><span id="tab:tab1">Table 1: </span> This table outlines the <em>resources</em> and the
+<em>resource identifiers, or accessions,</em> in OmicIDX. Note how the format of
+the accessions differs across resources. The “type of record” column
+has multiple <em>Sample</em> entries, for example, but each repository (GEO,
+SRA, Biosample, etc.) has a unique data model. More details on the data
+models are in the [SRA], [GEO], and [Biosample] sections.</caption>
+<thead>
+<tr class="header">
+<th>Database</th>
+<th>Example accession</th>
+<th>Type of record</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SRA</td>
+<td><code>SRP012682</code></td>
+<td>Study</td>
+</tr>
+<tr class="even">
+<td>SRA</td>
+<td><code>SRS357840</code></td>
+<td>Sample</td>
+</tr>
+<tr class="odd">
+<td>SRA</td>
+<td><code>SRX178456</code></td>
+<td>Experiment</td>
+</tr>
+<tr class="even">
+<td>SRA</td>
+<td><code>SRR543404</code></td>
+<td>Run</td>
+</tr>
+<tr class="odd">
+<td>Biosample</td>
+<td><code>SAMD00000001</code></td>
+<td>Sample</td>
+</tr>
+<tr class="even">
+<td>GEO</td>
+<td><code>GSM10</code></td>
+<td>Sample</td>
+</tr>
+<tr class="odd">
+<td>GEO</td>
+<td><code>GSE2553</code></td>
+<td>Study (or Series)</td>
+</tr>
+<tr class="even">
+<td>GEO</td>
+<td><code>GPL96</code></td>
+<td>Platform</td>
+</tr>
+</tbody>
+</table>
+<div id="get-an-individual-record-by-accession" class="section level3">
+<h3>Get an individual record by accession</h3>
+<p>URLs for accessing individual records in OmicIDX follow a standard
+form and are easy to construct. See Figure <a href="#fig:urldiagram">1</a> for details.</p>
+
+<pre class="r"><code>knitr::include_graphics(&#39;imgs/url_diagram.png&#39;)</code></pre>
+<div class="figure"><span id="fig:urldiagram"></span>
+<img src="imgs/url_diagram.png" alt="OmicIDX URLs to access omics metadata resources by accession follow a pattern. In the diagramatic representation of an OmicIDX URL, box 1 is the server name. Box 2 is the originating database which is, in this case, the [SRA] database. Box 3 is the name of the resource within the originating database, here the studies collection. Finally, box 4 is the accession. Note that no / follows the accession." width="100%" />
+<p class="caption">
+Figure 1: OmicIDX URLs to access omics metadata <em>resources</em> by accession follow a pattern. In the diagramatic representation of an OmicIDX URL, box 1 is the server name. Box 2 is the originating database which is, in this case, the [SRA] database. Box 3 is the name of the resource within the originating database, here the studies collection. Finally, box 4 is the accession. Note that no <code>/</code> follows the accession.
+</p>
+</div>
+<p>For example, the SRA accession for the GTeX study is <code>SRP012682</code>. This
+accession comes from the <code>sra</code> database and is a <code>study</code>, so we query
+the following URL:</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682</a></li>
+</ul>
+<p>Clicking on the link will return JSON results for the study record for
+the GTeX study. Alternatively, one can use <code>curl</code> on the command line
+to access the same URL.</p>
+<pre class="bash"><code>curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&#39;</code></pre>
+<p>While <code>curl</code> will work fine to get results, the <a href="https://httpie.org/">httpie tool</a> is a friendlier tool for querying web APIs. <a href="https://httpie.org/#installation">Installation is straightforward</a>.</p>
+<pre class="bash"><code>http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&#39; \
+    --pretty format</code></pre>
+<pre><code>## {
+##     &quot;BioProject&quot;: &quot;PRJNA75899&quot;, 
+##     &quot;abstract&quot;: &quot;Lay Description.  The aim of the Genotype-Tissue Expression (GTEx) Project is to increase our understanding of how changes in our genes affect human health and disease with the ultimate goal of improving health care for future generations. GTEx will create a database that researchers can use to study how inherited changes in genes lead to common diseases.  GTEx researchers are studying genes in different tissues obtained from many different people. The GTEx project also includes a study of the GTEx donor consent process - this study will help ensure that the consent process and other aspects of the project effectively address the concerns and expectations of participants in the study. GTEx is a pioneering project that uses state-of-the-art protocols for obtaining and storing a large range of organs and tissues, and for testing them in the lab. Until now, no project has analyzed genetic variation and expression in as many tissues from the same person in... (for more see dbGaP study page.)&quot;, 
+##     &quot;accession&quot;: &quot;SRP012682&quot;, 
+##     &quot;alias&quot;: &quot;phs000424&quot;, 
+##     &quot;attributes&quot;: [
+##         {
+##             &quot;tag&quot;: &quot;parent_bioproject&quot;, 
+##             &quot;value&quot;: &quot;PRJNA75897&quot;
+##         }
+##     ], 
+##     &quot;center_name&quot;: &quot;dbGaP&quot;, 
+##     &quot;experiment_count&quot;: &quot;24588&quot;, 
+##     &quot;identifiers&quot;: [
+##         {
+##             &quot;id&quot;: &quot;PRJNA75899&quot;, 
+##             &quot;namespace&quot;: &quot;BioProject&quot;
+##         }, 
+##         {
+##             &quot;id&quot;: &quot;phs000424&quot;, 
+##             &quot;namespace&quot;: &quot;dbGaP&quot;
+##         }, 
+##         {
+##             &quot;id&quot;: &quot;phs000424&quot;, 
+##             &quot;namespace&quot;: &quot;dbGaP&quot;
+##         }
+##     ], 
+##     &quot;insdc&quot;: true, 
+##     &quot;lastupdate&quot;: &quot;2017-09-17T10:26:44&quot;, 
+##     &quot;mean_bases_per_run&quot;: 14030484634.422861, 
+##     &quot;published&quot;: &quot;2014-02-14T22:56:17&quot;, 
+##     &quot;pubmed_ids&quot;: [], 
+##     &quot;received&quot;: &quot;2012-05-04T15:43:05&quot;, 
+##     &quot;run_count&quot;: &quot;24588&quot;, 
+##     &quot;sample_count&quot;: &quot;14249&quot;, 
+##     &quot;status&quot;: &quot;live&quot;, 
+##     &quot;study_type&quot;: &quot;Other&quot;, 
+##     &quot;taxon_ids&quot;: [
+##         &quot;9606&quot;
+##     ], 
+##     &quot;title&quot;: &quot;Genotype-Tissue Expression (GTEx) Common Fund Project&quot;, 
+##     &quot;total_bases&quot;: &quot;343115501734811&quot;, 
+##     &quot;total_spots&quot;: &quot;1698588305124&quot;
+## }</code></pre>
+<p>The [httr] package is useful in R for accessing web resources. The
+following is a simple code example.</p>
+<pre class="r"><code># Requires the httr package
+#   install.packages(&#39;httr&#39;)
+response = httr::GET(&quot;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&quot;)
+content = httr::content(response)
+content</code></pre>
+<pre><code>## $pubmed_ids
+## list()
+## 
+## $total_spots
+## [1] &quot;1698588305124&quot;
+## 
+## $identifiers
+## $identifiers[[1]]
+## $identifiers[[1]]$id
+## [1] &quot;PRJNA75899&quot;
+## 
+## $identifiers[[1]]$namespace
+## [1] &quot;BioProject&quot;
+## 
+## 
+## $identifiers[[2]]
+## $identifiers[[2]]$id
+## [1] &quot;phs000424&quot;
+## 
+## $identifiers[[2]]$namespace
+## [1] &quot;dbGaP&quot;
+## 
+## 
+## $identifiers[[3]]
+## $identifiers[[3]]$id
+## [1] &quot;phs000424&quot;
+## 
+## $identifiers[[3]]$namespace
+## [1] &quot;dbGaP&quot;
+## 
+## 
+## 
+## $taxon_ids
+## $taxon_ids[[1]]
+## [1] &quot;9606&quot;
+## 
+## 
+## $experiment_count
+## [1] &quot;24588&quot;
+## 
+## $received
+## [1] &quot;2012-05-04T15:43:05&quot;
+## 
+## $abstract
+## [1] &quot;Lay Description.  The aim of the Genotype-Tissue Expression (GTEx) Project is to increase our understanding of how changes in our genes affect human health and disease with the ultimate goal of improving health care for future generations. GTEx will create a database that researchers can use to study how inherited changes in genes lead to common diseases.  GTEx researchers are studying genes in different tissues obtained from many different people. The GTEx project also includes a study of the GTEx donor consent process - this study will help ensure that the consent process and other aspects of the project effectively address the concerns and expectations of participants in the study. GTEx is a pioneering project that uses state-of-the-art protocols for obtaining and storing a large range of organs and tissues, and for testing them in the lab. Until now, no project has analyzed genetic variation and expression in as many tissues from the same person in... (for more see dbGaP study page.)&quot;
+## 
+## $accession
+## [1] &quot;SRP012682&quot;
+## 
+## $published
+## [1] &quot;2014-02-14T22:56:17&quot;
+## 
+## $title
+## [1] &quot;Genotype-Tissue Expression (GTEx) Common Fund Project&quot;
+## 
+## $mean_bases_per_run
+## [1] 14030484634
+## 
+## $run_count
+## [1] &quot;24588&quot;
+## 
+## $center_name
+## [1] &quot;dbGaP&quot;
+## 
+## $study_type
+## [1] &quot;Other&quot;
+## 
+## $insdc
+## [1] TRUE
+## 
+## $sample_count
+## [1] &quot;14249&quot;
+## 
+## $alias
+## [1] &quot;phs000424&quot;
+## 
+## $attributes
+## $attributes[[1]]
+## $attributes[[1]]$value
+## [1] &quot;PRJNA75897&quot;
+## 
+## $attributes[[1]]$tag
+## [1] &quot;parent_bioproject&quot;
+## 
+## 
+## 
+## $total_bases
+## [1] &quot;343115501734811&quot;
+## 
+## $lastupdate
+## [1] &quot;2017-09-17T10:26:44&quot;
+## 
+## $BioProject
+## [1] &quot;PRJNA75899&quot;
+## 
+## $status
+## [1] &quot;live&quot;</code></pre>
+<p>In python, one might use the [requests] library to access the URL and
+retrieve the data into a python object.</p>
+<pre class="python"><code># requires the requests package be available
+#   pip install requests
+import requests, pprint
+response = requests.get(
+    &quot;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&quot;
+)
+pprint.pprint(response.json())</code></pre>
+<pre><code>## {&#39;BioProject&#39;: &#39;PRJNA75899&#39;,
+##  &#39;abstract&#39;: &#39;Lay Description.  The aim of the Genotype-Tissue Expression &#39;
+##              &#39;(GTEx) Project is to increase our understanding of how changes &#39;
+##              &#39;in our genes affect human health and disease with the ultimate &#39;
+##              &#39;goal of improving health care for future generations. GTEx will &#39;
+##              &#39;create a database that researchers can use to study how &#39;
+##              &#39;inherited changes in genes lead to common diseases.  GTEx &#39;
+##              &#39;researchers are studying genes in different tissues obtained &#39;
+##              &#39;from many different people. The GTEx project also includes a &#39;
+##              &#39;study of the GTEx donor consent process - this study will help &#39;
+##              &#39;ensure that the consent process and other aspects of the project &#39;
+##              &#39;effectively address the concerns and expectations of &#39;
+##              &#39;participants in the study. GTEx is a pioneering project that &#39;
+##              &#39;uses state-of-the-art protocols for obtaining and storing a &#39;
+##              &#39;large range of organs and tissues, and for testing them in the &#39;
+##              &#39;lab. Until now, no project has analyzed genetic variation and &#39;
+##              &#39;expression in as many tissues from the same person in... (for &#39;
+##              &#39;more see dbGaP study page.)&#39;,
+##  &#39;accession&#39;: &#39;SRP012682&#39;,
+##  &#39;alias&#39;: &#39;phs000424&#39;,
+##  &#39;attributes&#39;: [{&#39;tag&#39;: &#39;parent_bioproject&#39;, &#39;value&#39;: &#39;PRJNA75897&#39;}],
+##  &#39;center_name&#39;: &#39;dbGaP&#39;,
+##  &#39;experiment_count&#39;: &#39;24588&#39;,
+##  &#39;identifiers&#39;: [{&#39;id&#39;: &#39;PRJNA75899&#39;, &#39;namespace&#39;: &#39;BioProject&#39;},
+##                  {&#39;id&#39;: &#39;phs000424&#39;, &#39;namespace&#39;: &#39;dbGaP&#39;},
+##                  {&#39;id&#39;: &#39;phs000424&#39;, &#39;namespace&#39;: &#39;dbGaP&#39;}],
+##  &#39;insdc&#39;: True,
+##  &#39;lastupdate&#39;: &#39;2017-09-17T10:26:44&#39;,
+##  &#39;mean_bases_per_run&#39;: 14030484634.422861,
+##  &#39;published&#39;: &#39;2014-02-14T22:56:17&#39;,
+##  &#39;pubmed_ids&#39;: [],
+##  &#39;received&#39;: &#39;2012-05-04T15:43:05&#39;,
+##  &#39;run_count&#39;: &#39;24588&#39;,
+##  &#39;sample_count&#39;: &#39;14249&#39;,
+##  &#39;status&#39;: &#39;live&#39;,
+##  &#39;study_type&#39;: &#39;Other&#39;,
+##  &#39;taxon_ids&#39;: [&#39;9606&#39;],
+##  &#39;title&#39;: &#39;Genotype-Tissue Expression (GTEx) Common Fund Project&#39;,
+##  &#39;total_bases&#39;: &#39;343115501734811&#39;,
+##  &#39;total_spots&#39;: &#39;1698588305124&#39;}</code></pre>
+<p>Each <em>resource</em> (SRA Sample, for example) has a particular data model
+that is shared across all members of that resource. However, different
+<em>resources</em> (SRA Sample vs SRA Study) will have different data models
+(though some fields are common) from one another. To get a sense of
+what other <em>resources</em> look like, try clicking through these
+links. For more details, see the data models for [SRA], [GEO], and
+[Biosample].</p>
+<p>Additional examples include:</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840" class="uri">https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/experiments/SRX178456" class="uri">https://api.omicidx.cancerdatasci.org/sra/experiments/SRX178456</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/runs/SRR543404" class="uri">https://api.omicidx.cancerdatasci.org/sra/runs/SRR543404</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/biosample/samples/SAMD00000001" class="uri">https://api.omicidx.cancerdatasci.org/biosample/samples/SAMD00000001</a></li>
+</ul>
+</div>
+<div id="get-records-related-to-an-accession" class="section level3">
+<h3>Get records related to an accession</h3>
+<p>Another common task is to find all the records of one type for a
+record of another type, e.g., all samples for a given study. For this
+section, we will make the workflow a bit more realistic. <a href="https://mikelove.github.io/">Mike Love</a>
+routinely teaches about gene-level differential RNA-seq expression
+using the <a href="https://bioconductor.org/packages/rnaseqGene/">rnaseqGene Bioconductor
+workflow</a>. After
+accessing the Bioconductor vignette, we note that the data used are
+from <span class="citation">[@Himes2014-zj]</span>.</p>
+<p>To find SRA links from a PubMed record, look at the <strong>Related
+Information</strong> section that will look like Figure
+<a href="#fig:pubmedlinks">2</a>. Clicking on the <strong>SRA</strong> link will reveal that
+thethe related SRA study is <code>SRP033351</code>. Reviewing the single-record
+access approach from the last section, this URL returns the details of
+the study.</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351</a></li>
+</ul>
+<div class="figure"><span id="fig:pubmedlinks"></span>
+<img src="imgs/pubmed_links.png" alt="When viewing a PubMed abstract, the Related Information section may have link(s) out to omics databases. Clicking through on one of these links will reveal an accession that can be used for accessing OmicIDX" width="100%" />
+<p class="caption">
+Figure 2: When viewing a PubMed abstract, the Related Information section may have link(s) out to omics databases. Clicking through on one of these links will reveal an accession that can be used for accessing OmicIDX
+</p>
+</div>
+<p>Fetching all related samples given this study (see the [SRA data
+model section][SRA] for how samples relate to a study) is
+straightforward and the URL again follows a pattern.</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples</a></li>
+</ul>
+<p>The URLs for all related experiment and run records are, respectively:</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/experiments" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/experiments</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/runs" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/runs</a></li>
+</ul>
+<p>Here are additional examples of accessing related records:</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments" class="uri">https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs" class="uri">https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/experiments" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/experiments</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/runs" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/runs</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments" class="uri">https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments</a></li>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs" class="uri">https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs</a></li>
+</ul>
+</div>
+</div>
+<div id="counting-and-paging-through-results" class="section level2">
+<h2>Counting and paging through results</h2>
+<p>API accesses and queries may include many millions of records, but the
+OmicIDX REST API limits resultsets to batches of size &lt;1000 records in
+a single call to the API. This section addresses:</p>
+<ol style="list-style-type: decimal">
+<li>Choosing the number of results, or <code>size</code>, that are returned by each API call.</li>
+<li>Paging through very large resultsets in chunks using the <em>cursor</em>.</li>
+</ol>
+<div id="adjusting-the-page-size" class="section level3">
+<h3>Adjusting the page <em>size</em></h3>
+<p>Adding a <code>size</code> parameter to the URL above
+modifies the <em>default resultset size of 10</em> to be either smaller (down
+to zero) or larger (up to 999). An example URL including the size
+parameter looks like:</p>
+<ul>
+<li><a href="https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2" class="uri">https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2</a></li>
+</ul>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&#39; \
+    size==2 \
+    --pretty format</code></pre>
+<pre><code>## {
+##     &quot;cursor&quot;: &quot;X2lkfHxhc2N8fHx8U1JTNTA4NTY4&quot;, 
+##     &quot;hits&quot;: [
+##         {
+##             &quot;BioSample&quot;: &quot;SAMN02422675&quot;, 
+##             &quot;accession&quot;: &quot;SRS508567&quot;, 
+##             &quot;alias&quot;: &quot;GSM1275863&quot;, 
+##             &quot;attributes&quot;: [
+##                 {
+##                     &quot;tag&quot;: &quot;source_name&quot;, 
+##                     &quot;value&quot;: &quot;airway smooth muscle cells&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;treatment&quot;, 
+##                     &quot;value&quot;: &quot;Dexamethasone&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;tissue&quot;, 
+##                     &quot;value&quot;: &quot;human airway smooth muscle cells&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;ercc_mix&quot;, 
+##                     &quot;value&quot;: &quot;-&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;cell line&quot;, 
+##                     &quot;value&quot;: &quot;N61311&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;cell type&quot;, 
+##                     &quot;value&quot;: &quot;airway smooth muscle cells&quot;
+##                 }
+##             ], 
+##             &quot;experiment_count&quot;: &quot;1&quot;, 
+##             &quot;identifiers&quot;: [
+##                 {
+##                     &quot;id&quot;: &quot;SAMN02422675&quot;, 
+##                     &quot;namespace&quot;: &quot;BioSample&quot;
+##                 }, 
+##                 {
+##                     &quot;id&quot;: &quot;GSM1275863&quot;, 
+##                     &quot;namespace&quot;: &quot;GEO&quot;
+##                 }
+##             ], 
+##             &quot;insdc&quot;: true, 
+##             &quot;lastupdate&quot;: &quot;2014-11-07T22:00:54&quot;, 
+##             &quot;mean_bases_per_run&quot;: 2665619082, 
+##             &quot;organism&quot;: &quot;Homo sapiens&quot;, 
+##             &quot;published&quot;: &quot;2014-01-01T05:49:37&quot;, 
+##             &quot;received&quot;: &quot;2013-11-26T21:30:10&quot;, 
+##             &quot;run_count&quot;: &quot;1&quot;, 
+##             &quot;status&quot;: &quot;live&quot;, 
+##             &quot;study&quot;: {
+##                 &quot;BioProject&quot;: &quot;PRJNA229998&quot;, 
+##                 &quot;abstract&quot;: &quot;Rationale: Asthma is a chronic inflammatory airway disease. The most common medications used for its treatment are ß2-agonists and glucocorticosteroids, and one of the primary tissues that these drugs target in the treatment of asthma is the airway smooth muscle. We used RNA-Seq to characterize the human airway smooth muscle (HASM) transcriptome at baseline and under three asthma treatment conditions. Methods: The Illumina TruSeq assay was used to prepare 75bp paired-end libraries for HASM cells from four white male donors under four treatment conditions: 1) no treatment; 2) treatment with a ß2-agonist (i.e. Albuterol, 1µM for 18h); 3) treatment with a glucocorticosteroid (i.e. Dexamethasone (Dex), 1µM for 18h); 4) simultaneous treatment with a ß2-agonist and glucocorticoid, and the libraries were sequenced with an Illumina Hi-Seq 2000 instrument. The Tuxedo Suite Tools were used to align reads to the hg19 reference genome, assemble transcripts, and perform differential expression analysis using the protocol described in https://github.com/blancahimes/taffeta Overall design: mRNA profiles obtained via RNA-Seq for four primary human airway smooth muscle cell lines that were treated with dexamethasone, albuterol, dexamethasone+albuterol or were left untreated.&quot;, 
+##                 &quot;accession&quot;: &quot;SRP033351&quot;, 
+##                 &quot;alias&quot;: &quot;GSE52778&quot;, 
+##                 &quot;attributes&quot;: [], 
+##                 &quot;center_name&quot;: &quot;GEO&quot;, 
+##                 &quot;identifiers&quot;: [
+##                     {
+##                         &quot;id&quot;: &quot;PRJNA229998&quot;, 
+##                         &quot;namespace&quot;: &quot;BioProject&quot;
+##                     }, 
+##                     {
+##                         &quot;id&quot;: &quot;GSE52778&quot;, 
+##                         &quot;namespace&quot;: &quot;GEO&quot;
+##                     }
+##                 ], 
+##                 &quot;insdc&quot;: true, 
+##                 &quot;lastupdate&quot;: &quot;2018-06-12T17:05:25&quot;, 
+##                 &quot;published&quot;: &quot;2014-01-02T14:16:11&quot;, 
+##                 &quot;pubmed_ids&quot;: [
+##                     &quot;24926665&quot;
+##                 ], 
+##                 &quot;received&quot;: &quot;2013-11-26T21:29:11&quot;, 
+##                 &quot;status&quot;: &quot;live&quot;, 
+##                 &quot;study_type&quot;: &quot;Transcriptome Analysis&quot;, 
+##                 &quot;title&quot;: &quot;Human Airway Smooth Muscle Transcriptome Changes in Response to Asthma Medications&quot;
+##             }, 
+##             &quot;taxon_id&quot;: &quot;9606&quot;, 
+##             &quot;title&quot;: &quot;N61311_Dex&quot;, 
+##             &quot;total_bases&quot;: &quot;2665619082&quot;, 
+##             &quot;total_spots&quot;: &quot;21155707&quot;, 
+##             &quot;xrefs&quot;: [
+##                 {
+##                     &quot;db&quot;: &quot;bioproject&quot;, 
+##                     &quot;id&quot;: &quot;229998&quot;
+##                 }
+##             ]
+##         }, 
+##         {
+##             &quot;BioSample&quot;: &quot;SAMN02422669&quot;, 
+##             &quot;accession&quot;: &quot;SRS508568&quot;, 
+##             &quot;alias&quot;: &quot;GSM1275862&quot;, 
+##             &quot;attributes&quot;: [
+##                 {
+##                     &quot;tag&quot;: &quot;source_name&quot;, 
+##                     &quot;value&quot;: &quot;airway smooth muscle cells&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;treatment&quot;, 
+##                     &quot;value&quot;: &quot;Untreated&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;tissue&quot;, 
+##                     &quot;value&quot;: &quot;human airway smooth muscle cells&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;ercc_mix&quot;, 
+##                     &quot;value&quot;: &quot;-&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;cell line&quot;, 
+##                     &quot;value&quot;: &quot;N61311&quot;
+##                 }, 
+##                 {
+##                     &quot;tag&quot;: &quot;cell type&quot;, 
+##                     &quot;value&quot;: &quot;airway smooth muscle cells&quot;
+##                 }
+##             ], 
+##             &quot;experiment_count&quot;: &quot;1&quot;, 
+##             &quot;identifiers&quot;: [
+##                 {
+##                     &quot;id&quot;: &quot;SAMN02422669&quot;, 
+##                     &quot;namespace&quot;: &quot;BioSample&quot;
+##                 }, 
+##                 {
+##                     &quot;id&quot;: &quot;GSM1275862&quot;, 
+##                     &quot;namespace&quot;: &quot;GEO&quot;
+##                 }
+##             ], 
+##             &quot;insdc&quot;: true, 
+##             &quot;lastupdate&quot;: &quot;2014-11-07T22:00:54&quot;, 
+##             &quot;mean_bases_per_run&quot;: 2889875646, 
+##             &quot;organism&quot;: &quot;Homo sapiens&quot;, 
+##             &quot;published&quot;: &quot;2014-01-01T05:49:38&quot;, 
+##             &quot;received&quot;: &quot;2013-11-26T21:30:11&quot;, 
+##             &quot;run_count&quot;: &quot;1&quot;, 
+##             &quot;status&quot;: &quot;live&quot;, 
+##             &quot;study&quot;: {
+##                 &quot;BioProject&quot;: &quot;PRJNA229998&quot;, 
+##                 &quot;abstract&quot;: &quot;Rationale: Asthma is a chronic inflammatory airway disease. The most common medications used for its treatment are ß2-agonists and glucocorticosteroids, and one of the primary tissues that these drugs target in the treatment of asthma is the airway smooth muscle. We used RNA-Seq to characterize the human airway smooth muscle (HASM) transcriptome at baseline and under three asthma treatment conditions. Methods: The Illumina TruSeq assay was used to prepare 75bp paired-end libraries for HASM cells from four white male donors under four treatment conditions: 1) no treatment; 2) treatment with a ß2-agonist (i.e. Albuterol, 1µM for 18h); 3) treatment with a glucocorticosteroid (i.e. Dexamethasone (Dex), 1µM for 18h); 4) simultaneous treatment with a ß2-agonist and glucocorticoid, and the libraries were sequenced with an Illumina Hi-Seq 2000 instrument. The Tuxedo Suite Tools were used to align reads to the hg19 reference genome, assemble transcripts, and perform differential expression analysis using the protocol described in https://github.com/blancahimes/taffeta Overall design: mRNA profiles obtained via RNA-Seq for four primary human airway smooth muscle cell lines that were treated with dexamethasone, albuterol, dexamethasone+albuterol or were left untreated.&quot;, 
+##                 &quot;accession&quot;: &quot;SRP033351&quot;, 
+##                 &quot;alias&quot;: &quot;GSE52778&quot;, 
+##                 &quot;attributes&quot;: [], 
+##                 &quot;center_name&quot;: &quot;GEO&quot;, 
+##                 &quot;identifiers&quot;: [
+##                     {
+##                         &quot;id&quot;: &quot;PRJNA229998&quot;, 
+##                         &quot;namespace&quot;: &quot;BioProject&quot;
+##                     }, 
+##                     {
+##                         &quot;id&quot;: &quot;GSE52778&quot;, 
+##                         &quot;namespace&quot;: &quot;GEO&quot;
+##                     }
+##                 ], 
+##                 &quot;insdc&quot;: true, 
+##                 &quot;lastupdate&quot;: &quot;2018-06-12T17:05:25&quot;, 
+##                 &quot;published&quot;: &quot;2014-01-02T14:16:11&quot;, 
+##                 &quot;pubmed_ids&quot;: [
+##                     &quot;24926665&quot;
+##                 ], 
+##                 &quot;received&quot;: &quot;2013-11-26T21:29:11&quot;, 
+##                 &quot;status&quot;: &quot;live&quot;, 
+##                 &quot;study_type&quot;: &quot;Transcriptome Analysis&quot;, 
+##                 &quot;title&quot;: &quot;Human Airway Smooth Muscle Transcriptome Changes in Response to Asthma Medications&quot;
+##             }, 
+##             &quot;taxon_id&quot;: &quot;9606&quot;, 
+##             &quot;title&quot;: &quot;N61311_untreated&quot;, 
+##             &quot;total_bases&quot;: &quot;2889875646&quot;, 
+##             &quot;total_spots&quot;: &quot;22935521&quot;, 
+##             &quot;xrefs&quot;: [
+##                 {
+##                     &quot;db&quot;: &quot;bioproject&quot;, 
+##                     &quot;id&quot;: &quot;229998&quot;
+##                 }
+##             ]
+##         }
+##     ], 
+##     &quot;stats&quot;: {
+##         &quot;took&quot;: 2, 
+##         &quot;total&quot;: 16
+##     }, 
+##     &quot;success&quot;: true
+## }</code></pre>
+<p>Using a <code>size</code> of zero (0) is useful to capture just the count of the number of records.</p>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=0&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&#39; \
+    size==0 \
+    --pretty format</code></pre>
+<pre><code>## {
+##     &quot;cursor&quot;: null, 
+##     &quot;hits&quot;: [], 
+##     &quot;stats&quot;: {
+##         &quot;took&quot;: 0, 
+##         &quot;total&quot;: 16
+##     }, 
+##     &quot;success&quot;: true
+## }</code></pre>
+<p>Note that the <code>stats.total</code> part of the output gives the number
+<code>16</code>. All data resultsets from the OmicIDX API will include this
+annotation, giving the total number of results available given the
+query or URL.</p>
+<p>Another, larger study, such at GTeX (SRP015892) offers many more
+samples. But how many?</p>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=0&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#39; \
+    size==0 \
+    --pretty format</code></pre>
+<pre><code>## {
+##     &quot;cursor&quot;: null, 
+##     &quot;hits&quot;: [], 
+##     &quot;stats&quot;: {
+##         &quot;took&quot;: 0, 
+##         &quot;total&quot;: 14249
+##     }, 
+##     &quot;success&quot;: true
+## }</code></pre>
+<p>Therefore, the <code>size</code> parameter varies the number of results returned
+by an API call. Using a <code>size</code> of zero (0) is a quick-and-dirty
+approach to get a count of the number of records that would be
+returned by an API call. This same trick can be used when counting
+<code>search</code> results below.</p>
+</div>
+<div id="using-the-cursor-to-page-through-large-result-sets." class="section level3">
+<h3>Using the <em>cursor</em> to page through large result sets.</h3>
+<p>The limitation on result set size is to mitigate problems with network
+connectivity and to simplify somewhat the database backend
+infrastructure. However, there are definitely result sets that are
+larger than 999 records. How do we deal with that situation?</p>
+<p>The OmicIDX API uses <code>paging</code>. In particular, the API uses
+<a href="https://stackoverflow.com/a/49612308/459633">cursor-based
+paging</a>. For each
+result set that the API returns, if more results are available, there
+will be a <code>cursor</code> field available that can be used as a parameter to
+the <em>next</em> API call to start with results <em>after</em> the cursor. Perhaps
+it is easier to explain with an example:</p>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#39; \
+    size==5 \
+    --pretty format</code></pre>
+<p>If you run the line above, the result will include a <code>&quot;cursor&quot;: &quot;LONG....STRING&quot;</code> that might look like the following (your cursor may
+be different).</p>
+<pre><code>...
+  ],
+  &quot;cursor&quot;: &quot;X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&quot;,
+  &quot;stats&quot;: {
+    &quot;total&quot;: 14249,
+    &quot;took&quot;: 10
+  },
+  &quot;success&quot;: true
+}
+...</code></pre>
+<p>Adding the cursor as a parameter to the same URL retrieves the next 5 results like so:</p>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;cursor=X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#39; \
+    size==5 \
+    &#39;cursor==X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&#39; \
+    --pretty format</code></pre>
+<p>The next cursor value will look similar (for example,
+“X2lkfHxhc2N8fHx8U1JTMTAxNzE0Mg==”). Continuing to play this game of
+specifying the cursor when it is available allows <em>paging</em> through the
+result set. When fetching results, the cursor will be available until
+there are no more results to be fetched. Thus, when there is not a
+<code>cursor</code> entry in the results, all results have been retrieved and any
+looping code can stop.</p>
+<p>Note a few assumptions/caveats here.</p>
+<ol style="list-style-type: decimal">
+<li>The <code>size</code> parameter dictates the number of results in one “page”.</li>
+<li>The <code>cursor</code> parameter is specific to the search or API
+query. Cursors cannot be reused across different queries.</li>
+<li>When calling the API, the query should remain fixed when paging
+with a cursor (ie., use the same URL over again, changing only the
+cursor value).</li>
+<li>Underlying the cursor functionality is a fixed sorting order (that
+is not currently a parameter that can be tweeked).</li>
+</ol>
+</div>
+</div>
+<div id="customizing-returned-fields" class="section level2">
+<h2>Customizing returned fields</h2>
+<div id="listing-available-fields" class="section level3">
+<h3>Listing available fields</h3>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/_mapping/study&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/_mapping/study&#39; \
+    --pretty format</code></pre>
+<pre><code>## [
+##     {
+##         &quot;field&quot;: &quot;BioProject&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;abstract&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;accession&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;alias&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;attributes.tag&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;attributes.value&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;keyword&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;broker_name&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;center_name&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;description&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;experiment_count&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;identifiers.id&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: true, 
+##         &quot;path&quot;: &quot;identifiers&quot;, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;identifiers.namespace&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: true, 
+##         &quot;path&quot;: &quot;identifiers&quot;, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;insdc&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;boolean&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;lastupdate&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;date&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;mean_bases_per_run&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;float&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;published&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;date&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;pubmed_ids&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;received&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;date&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;run_count&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;sample_count&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;status&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;study_type&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;taxon_ids&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;title&quot;, 
+##         &quot;keyword&quot;: true, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;text&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;total_bases&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;long&quot;
+##     }, 
+##     {
+##         &quot;field&quot;: &quot;total_spots&quot;, 
+##         &quot;keyword&quot;: false, 
+##         &quot;nested&quot;: false, 
+##         &quot;type&quot;: &quot;long&quot;
+##     }
+## ]</code></pre>
+</div>
+<div id="including-or-excluding-specific-fields-from-results" class="section level3">
+<h3>Including or excluding specific fields from results</h3>
+<pre class="bash"><code># curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;include_fields=accession&amp;include_fields=title&#39;
+http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#39; \
+    &#39;size==5&#39; &#39;include_fields==accession&#39; \
+    &#39;include_fields==title&#39; \
+    --pretty format</code></pre>
+<pre><code>## {
+##     &quot;cursor&quot;: &quot;X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&quot;, 
+##     &quot;hits&quot;: [
+##         {
+##             &quot;accession&quot;: &quot;SRS1017133&quot;, 
+##             &quot;title&quot;: &quot;Non-tumor RNA:Total RNA sample from Skin - Sun Exposed (Lower leg) of a human female participant in the dbGaP study \&quot;Genotype-Tissue Expression (GTEx)\&quot;&quot;
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;SRS1017134&quot;, 
+##             &quot;title&quot;: &quot;Non-tumor RNA:Total RNA sample from Testis of a human male participant in the dbGaP study \&quot;Genotype-Tissue Expression (GTEx)\&quot;&quot;
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;SRS1017135&quot;, 
+##             &quot;title&quot;: &quot;Non-tumor RNA:Total RNA sample from Thyroid of a human male participant in the dbGaP study \&quot;Genotype-Tissue Expression (GTEx)\&quot;&quot;
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;SRS1017136&quot;, 
+##             &quot;title&quot;: &quot;Non-tumor RNA:Total RNA sample from Thyroid of a human male participant in the dbGaP study \&quot;Genotype-Tissue Expression (GTEx)\&quot;&quot;
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;SRS1017137&quot;, 
+##             &quot;title&quot;: &quot;Non-tumor RNA:Total RNA sample from Stomach of a human male participant in the dbGaP study \&quot;Genotype-Tissue Expression (GTEx)\&quot;&quot;
+##         }
+##     ], 
+##     &quot;stats&quot;: {
+##         &quot;took&quot;: 11, 
+##         &quot;total&quot;: 14249
+##     }, 
+##     &quot;success&quot;: true
+## }</code></pre>
+</div>
+</div>
+<div id="search" class="section level2">
+<h2>Search</h2>
+<ol style="list-style-type: decimal">
+<li>Decide what you want to search for: studies, samples, experiments, or runs.</li>
+<li>Take a look at the output of one of the API calls on the previous slide for the entity type you want to search for.</li>
+<li>Look closely at the field names and what is in them.</li>
+<li>Form the query using <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">lucene query syntax</a>.</li>
+<li>Form the URL based like so, using <code>q=</code> to specify the query string. For example, to find all human RNA-seq experiments:</li>
+</ol>
+<p><a href="https://api.omicidx.cancerdatasci.org/sra/experiments?q=library_strategy:%22RNA-Seq%22%20AND%20sample.taxon_id:9606"><code>https://api.omicidx.cancerdatasci.org/sra/experiments?q=library_strategy:&quot;RNA-Seq&quot; AND sample.taxon_id:9606</code></a></p>
+<p>The number of records can be tuned using <code>size=....</code> (up to 999 records).</p>
+</div>
+<div id="aggregation-and-basic-analytics" class="section level2">
+<h2>Aggregation and basic analytics</h2>
+</div>
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+</div>
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" href="https://groups.google.com/forum/#!forum/docsy-users">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" href="https://twitter.com/seandavis12">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/omicidx/omicidx">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2020 The Docsy Authors All Rights Reserved</small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></small>
+	
+		<p class="mt-2"><a href="/about/">About Docsy</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.694a304ce48428958385c093577a1e8bf160e36aef1aed5a59c892fa71d5a8b3.js" integrity="sha256-aUowTOSEKJWDhcCTV3oei/Fg42rvGu1aWciS&#43;nHVqLM=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

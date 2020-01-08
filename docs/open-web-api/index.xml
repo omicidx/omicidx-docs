@@ -1,0 +1,942 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docsy – The OmicIDX Web API</title>
+    <link>/docs/open-web-api/</link>
+    <description>Recent content in The OmicIDX Web API on Docsy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/docs/open-web-api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Background</title>
+      <link>/docs/open-web-api/rest-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/open-web-api/rest-api/</guid>
+      <description>
+        
+        
+        
+
+
+&lt;div id=&#34;restful-concepts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;RESTful Concepts&lt;/h2&gt;
+&lt;p&gt;Before focusing on any jargon or getting hung up on semantics, in the
+case of the OmicIDX REST API, three components to the system are
+important.&lt;/p&gt;
+&lt;p&gt;The first is that REST systems are typically composed of
+&lt;em&gt;resources&lt;/em&gt;. Any information that can be named can be a resource: a
+document or image, a temporal service, a collection of other
+resources, a non-virtual object (e.g. a person), and so on. In the
+OmicIDX case, typical resources are things like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SRA Runs&lt;/li&gt;
+&lt;li&gt;SRA Studies&lt;/li&gt;
+&lt;li&gt;Biosample Sample records&lt;/li&gt;
+&lt;li&gt;SRA Experiments&lt;/li&gt;
+&lt;li&gt;SRA Samples&lt;/li&gt;
+&lt;li&gt;GEO Platforms&lt;/li&gt;
+&lt;li&gt;GEO Samples&lt;/li&gt;
+&lt;li&gt;GEO Series (studies)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;REST uses a resource identifier to “name” the particular resource
+involved in an interaction. In OmicIDX, these
+resource identifiers are typically accessions, like &lt;em&gt;SRR000273&lt;/em&gt;,
+&lt;em&gt;SRX000273&lt;/em&gt;, or &lt;em&gt;SAMND00000001&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A REST API accesses &lt;em&gt;resources&lt;/em&gt; via &lt;em&gt;http&lt;/em&gt; calls. For example,
+to access a specific SRA study record, one can use a URL like:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP014892&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP014892&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Accessing the URL from the linux command-line program using a program
+like &lt;code&gt;curl&lt;/code&gt; leads to facile programmatic access. More on programmatic
+access follows.&lt;/p&gt;
+&lt;p&gt;REST is acronym for &lt;strong&gt;RE&lt;/strong&gt;presentational &lt;strong&gt;S&lt;/strong&gt;tate &lt;strong&gt;T&lt;/strong&gt;ransfer. It is
+architectural style for distributed systems and was first presented by
+Roy Fielding in 2000 in his &lt;a href=&#34;https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm&#34;&gt;famous dissertation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;retrieving-records-by-accession&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Retrieving records by accession&lt;/h2&gt;
+&lt;p&gt;All of the common public omics data repositories include &lt;em&gt;accessions&lt;/em&gt;
+for their records. These accessions serve as keys in &lt;em&gt;OmicIDX&lt;/em&gt;, so
+they can be reused easily for quick lookup of records. When the
+accession is known (such as when you find the accession in a pubmed
+abstract), retrieving the metadata for that accession is a common
+task. OmicIDX uses accessions from the original database, so eee table
+&lt;a href=&#34;#tab:tab1&#34;&gt;1&lt;/a&gt; for examples of what to look for.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:tab1&#34;&gt;Table 1: &lt;/span&gt; This table outlines the &lt;em&gt;resources&lt;/em&gt; and the
+&lt;em&gt;resource identifiers, or accessions,&lt;/em&gt; in OmicIDX. Note how the format of
+the accessions differs across resources. The “type of record” column
+has multiple &lt;em&gt;Sample&lt;/em&gt; entries, for example, but each repository (GEO,
+SRA, Biosample, etc.) has a unique data model. More details on the data
+models are in the [SRA], [GEO], and [Biosample] sections.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Database&lt;/th&gt;
+&lt;th&gt;Example accession&lt;/th&gt;
+&lt;th&gt;Type of record&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;SRA&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SRP012682&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Study&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;SRA&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SRS357840&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sample&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;SRA&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SRX178456&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Experiment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;SRA&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SRR543404&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Run&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Biosample&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SAMD00000001&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sample&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GEO&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;GSM10&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sample&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GEO&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;GSE2553&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Study (or Series)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GEO&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;GPL96&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Platform&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;get-an-individual-record-by-accession&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Get an individual record by accession&lt;/h3&gt;
+&lt;p&gt;URLs for accessing individual records in OmicIDX follow a standard
+form and are easy to construct. See Figure &lt;a href=&#34;#fig:urldiagram&#34;&gt;1&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;#39;imgs/url_diagram.png&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:urldiagram&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;imgs/url_diagram.png&#34; alt=&#34;OmicIDX URLs to access omics metadata resources by accession follow a pattern. In the diagramatic representation of an OmicIDX URL, box 1 is the server name. Box 2 is the originating database which is, in this case, the [SRA] database. Box 3 is the name of the resource within the originating database, here the studies collection. Finally, box 4 is the accession. Note that no / follows the accession.&#34; width=&#34;100%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: OmicIDX URLs to access omics metadata &lt;em&gt;resources&lt;/em&gt; by accession follow a pattern. In the diagramatic representation of an OmicIDX URL, box 1 is the server name. Box 2 is the originating database which is, in this case, the [SRA] database. Box 3 is the name of the resource within the originating database, here the studies collection. Finally, box 4 is the accession. Note that no &lt;code&gt;/&lt;/code&gt; follows the accession.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For example, the SRA accession for the GTeX study is &lt;code&gt;SRP012682&lt;/code&gt;. This
+accession comes from the &lt;code&gt;sra&lt;/code&gt; database and is a &lt;code&gt;study&lt;/code&gt;, so we query
+the following URL:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Clicking on the link will return JSON results for the study record for
+the GTeX study. Alternatively, one can use &lt;code&gt;curl&lt;/code&gt; on the command line
+to access the same URL.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;While &lt;code&gt;curl&lt;/code&gt; will work fine to get results, the &lt;a href=&#34;https://httpie.org/&#34;&gt;httpie tool&lt;/a&gt; is a friendlier tool for querying web APIs. &lt;a href=&#34;https://httpie.org/#installation&#34;&gt;Installation is straightforward&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&amp;#39; \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {
+##     &amp;quot;BioProject&amp;quot;: &amp;quot;PRJNA75899&amp;quot;, 
+##     &amp;quot;abstract&amp;quot;: &amp;quot;Lay Description.  The aim of the Genotype-Tissue Expression (GTEx) Project is to increase our understanding of how changes in our genes affect human health and disease with the ultimate goal of improving health care for future generations. GTEx will create a database that researchers can use to study how inherited changes in genes lead to common diseases.  GTEx researchers are studying genes in different tissues obtained from many different people. The GTEx project also includes a study of the GTEx donor consent process - this study will help ensure that the consent process and other aspects of the project effectively address the concerns and expectations of participants in the study. GTEx is a pioneering project that uses state-of-the-art protocols for obtaining and storing a large range of organs and tissues, and for testing them in the lab. Until now, no project has analyzed genetic variation and expression in as many tissues from the same person in... (for more see dbGaP study page.)&amp;quot;, 
+##     &amp;quot;accession&amp;quot;: &amp;quot;SRP012682&amp;quot;, 
+##     &amp;quot;alias&amp;quot;: &amp;quot;phs000424&amp;quot;, 
+##     &amp;quot;attributes&amp;quot;: [
+##         {
+##             &amp;quot;tag&amp;quot;: &amp;quot;parent_bioproject&amp;quot;, 
+##             &amp;quot;value&amp;quot;: &amp;quot;PRJNA75897&amp;quot;
+##         }
+##     ], 
+##     &amp;quot;center_name&amp;quot;: &amp;quot;dbGaP&amp;quot;, 
+##     &amp;quot;experiment_count&amp;quot;: &amp;quot;24588&amp;quot;, 
+##     &amp;quot;identifiers&amp;quot;: [
+##         {
+##             &amp;quot;id&amp;quot;: &amp;quot;PRJNA75899&amp;quot;, 
+##             &amp;quot;namespace&amp;quot;: &amp;quot;BioProject&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;id&amp;quot;: &amp;quot;phs000424&amp;quot;, 
+##             &amp;quot;namespace&amp;quot;: &amp;quot;dbGaP&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;id&amp;quot;: &amp;quot;phs000424&amp;quot;, 
+##             &amp;quot;namespace&amp;quot;: &amp;quot;dbGaP&amp;quot;
+##         }
+##     ], 
+##     &amp;quot;insdc&amp;quot;: true, 
+##     &amp;quot;lastupdate&amp;quot;: &amp;quot;2017-09-17T10:26:44&amp;quot;, 
+##     &amp;quot;mean_bases_per_run&amp;quot;: 14030484634.422861, 
+##     &amp;quot;published&amp;quot;: &amp;quot;2014-02-14T22:56:17&amp;quot;, 
+##     &amp;quot;pubmed_ids&amp;quot;: [], 
+##     &amp;quot;received&amp;quot;: &amp;quot;2012-05-04T15:43:05&amp;quot;, 
+##     &amp;quot;run_count&amp;quot;: &amp;quot;24588&amp;quot;, 
+##     &amp;quot;sample_count&amp;quot;: &amp;quot;14249&amp;quot;, 
+##     &amp;quot;status&amp;quot;: &amp;quot;live&amp;quot;, 
+##     &amp;quot;study_type&amp;quot;: &amp;quot;Other&amp;quot;, 
+##     &amp;quot;taxon_ids&amp;quot;: [
+##         &amp;quot;9606&amp;quot;
+##     ], 
+##     &amp;quot;title&amp;quot;: &amp;quot;Genotype-Tissue Expression (GTEx) Common Fund Project&amp;quot;, 
+##     &amp;quot;total_bases&amp;quot;: &amp;quot;343115501734811&amp;quot;, 
+##     &amp;quot;total_spots&amp;quot;: &amp;quot;1698588305124&amp;quot;
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The [httr] package is useful in R for accessing web resources. The
+following is a simple code example.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Requires the httr package
+#   install.packages(&amp;#39;httr&amp;#39;)
+response = httr::GET(&amp;quot;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&amp;quot;)
+content = httr::content(response)
+content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $pubmed_ids
+## list()
+## 
+## $total_spots
+## [1] &amp;quot;1698588305124&amp;quot;
+## 
+## $identifiers
+## $identifiers[[1]]
+## $identifiers[[1]]$id
+## [1] &amp;quot;PRJNA75899&amp;quot;
+## 
+## $identifiers[[1]]$namespace
+## [1] &amp;quot;BioProject&amp;quot;
+## 
+## 
+## $identifiers[[2]]
+## $identifiers[[2]]$id
+## [1] &amp;quot;phs000424&amp;quot;
+## 
+## $identifiers[[2]]$namespace
+## [1] &amp;quot;dbGaP&amp;quot;
+## 
+## 
+## $identifiers[[3]]
+## $identifiers[[3]]$id
+## [1] &amp;quot;phs000424&amp;quot;
+## 
+## $identifiers[[3]]$namespace
+## [1] &amp;quot;dbGaP&amp;quot;
+## 
+## 
+## 
+## $taxon_ids
+## $taxon_ids[[1]]
+## [1] &amp;quot;9606&amp;quot;
+## 
+## 
+## $experiment_count
+## [1] &amp;quot;24588&amp;quot;
+## 
+## $received
+## [1] &amp;quot;2012-05-04T15:43:05&amp;quot;
+## 
+## $abstract
+## [1] &amp;quot;Lay Description.  The aim of the Genotype-Tissue Expression (GTEx) Project is to increase our understanding of how changes in our genes affect human health and disease with the ultimate goal of improving health care for future generations. GTEx will create a database that researchers can use to study how inherited changes in genes lead to common diseases.  GTEx researchers are studying genes in different tissues obtained from many different people. The GTEx project also includes a study of the GTEx donor consent process - this study will help ensure that the consent process and other aspects of the project effectively address the concerns and expectations of participants in the study. GTEx is a pioneering project that uses state-of-the-art protocols for obtaining and storing a large range of organs and tissues, and for testing them in the lab. Until now, no project has analyzed genetic variation and expression in as many tissues from the same person in... (for more see dbGaP study page.)&amp;quot;
+## 
+## $accession
+## [1] &amp;quot;SRP012682&amp;quot;
+## 
+## $published
+## [1] &amp;quot;2014-02-14T22:56:17&amp;quot;
+## 
+## $title
+## [1] &amp;quot;Genotype-Tissue Expression (GTEx) Common Fund Project&amp;quot;
+## 
+## $mean_bases_per_run
+## [1] 14030484634
+## 
+## $run_count
+## [1] &amp;quot;24588&amp;quot;
+## 
+## $center_name
+## [1] &amp;quot;dbGaP&amp;quot;
+## 
+## $study_type
+## [1] &amp;quot;Other&amp;quot;
+## 
+## $insdc
+## [1] TRUE
+## 
+## $sample_count
+## [1] &amp;quot;14249&amp;quot;
+## 
+## $alias
+## [1] &amp;quot;phs000424&amp;quot;
+## 
+## $attributes
+## $attributes[[1]]
+## $attributes[[1]]$value
+## [1] &amp;quot;PRJNA75897&amp;quot;
+## 
+## $attributes[[1]]$tag
+## [1] &amp;quot;parent_bioproject&amp;quot;
+## 
+## 
+## 
+## $total_bases
+## [1] &amp;quot;343115501734811&amp;quot;
+## 
+## $lastupdate
+## [1] &amp;quot;2017-09-17T10:26:44&amp;quot;
+## 
+## $BioProject
+## [1] &amp;quot;PRJNA75899&amp;quot;
+## 
+## $status
+## [1] &amp;quot;live&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In python, one might use the [requests] library to access the URL and
+retrieve the data into a python object.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# requires the requests package be available
+#   pip install requests
+import requests, pprint
+response = requests.get(
+    &amp;quot;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682&amp;quot;
+)
+pprint.pprint(response.json())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {&amp;#39;BioProject&amp;#39;: &amp;#39;PRJNA75899&amp;#39;,
+##  &amp;#39;abstract&amp;#39;: &amp;#39;Lay Description.  The aim of the Genotype-Tissue Expression &amp;#39;
+##              &amp;#39;(GTEx) Project is to increase our understanding of how changes &amp;#39;
+##              &amp;#39;in our genes affect human health and disease with the ultimate &amp;#39;
+##              &amp;#39;goal of improving health care for future generations. GTEx will &amp;#39;
+##              &amp;#39;create a database that researchers can use to study how &amp;#39;
+##              &amp;#39;inherited changes in genes lead to common diseases.  GTEx &amp;#39;
+##              &amp;#39;researchers are studying genes in different tissues obtained &amp;#39;
+##              &amp;#39;from many different people. The GTEx project also includes a &amp;#39;
+##              &amp;#39;study of the GTEx donor consent process - this study will help &amp;#39;
+##              &amp;#39;ensure that the consent process and other aspects of the project &amp;#39;
+##              &amp;#39;effectively address the concerns and expectations of &amp;#39;
+##              &amp;#39;participants in the study. GTEx is a pioneering project that &amp;#39;
+##              &amp;#39;uses state-of-the-art protocols for obtaining and storing a &amp;#39;
+##              &amp;#39;large range of organs and tissues, and for testing them in the &amp;#39;
+##              &amp;#39;lab. Until now, no project has analyzed genetic variation and &amp;#39;
+##              &amp;#39;expression in as many tissues from the same person in... (for &amp;#39;
+##              &amp;#39;more see dbGaP study page.)&amp;#39;,
+##  &amp;#39;accession&amp;#39;: &amp;#39;SRP012682&amp;#39;,
+##  &amp;#39;alias&amp;#39;: &amp;#39;phs000424&amp;#39;,
+##  &amp;#39;attributes&amp;#39;: [{&amp;#39;tag&amp;#39;: &amp;#39;parent_bioproject&amp;#39;, &amp;#39;value&amp;#39;: &amp;#39;PRJNA75897&amp;#39;}],
+##  &amp;#39;center_name&amp;#39;: &amp;#39;dbGaP&amp;#39;,
+##  &amp;#39;experiment_count&amp;#39;: &amp;#39;24588&amp;#39;,
+##  &amp;#39;identifiers&amp;#39;: [{&amp;#39;id&amp;#39;: &amp;#39;PRJNA75899&amp;#39;, &amp;#39;namespace&amp;#39;: &amp;#39;BioProject&amp;#39;},
+##                  {&amp;#39;id&amp;#39;: &amp;#39;phs000424&amp;#39;, &amp;#39;namespace&amp;#39;: &amp;#39;dbGaP&amp;#39;},
+##                  {&amp;#39;id&amp;#39;: &amp;#39;phs000424&amp;#39;, &amp;#39;namespace&amp;#39;: &amp;#39;dbGaP&amp;#39;}],
+##  &amp;#39;insdc&amp;#39;: True,
+##  &amp;#39;lastupdate&amp;#39;: &amp;#39;2017-09-17T10:26:44&amp;#39;,
+##  &amp;#39;mean_bases_per_run&amp;#39;: 14030484634.422861,
+##  &amp;#39;published&amp;#39;: &amp;#39;2014-02-14T22:56:17&amp;#39;,
+##  &amp;#39;pubmed_ids&amp;#39;: [],
+##  &amp;#39;received&amp;#39;: &amp;#39;2012-05-04T15:43:05&amp;#39;,
+##  &amp;#39;run_count&amp;#39;: &amp;#39;24588&amp;#39;,
+##  &amp;#39;sample_count&amp;#39;: &amp;#39;14249&amp;#39;,
+##  &amp;#39;status&amp;#39;: &amp;#39;live&amp;#39;,
+##  &amp;#39;study_type&amp;#39;: &amp;#39;Other&amp;#39;,
+##  &amp;#39;taxon_ids&amp;#39;: [&amp;#39;9606&amp;#39;],
+##  &amp;#39;title&amp;#39;: &amp;#39;Genotype-Tissue Expression (GTEx) Common Fund Project&amp;#39;,
+##  &amp;#39;total_bases&amp;#39;: &amp;#39;343115501734811&amp;#39;,
+##  &amp;#39;total_spots&amp;#39;: &amp;#39;1698588305124&amp;#39;}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each &lt;em&gt;resource&lt;/em&gt; (SRA Sample, for example) has a particular data model
+that is shared across all members of that resource. However, different
+&lt;em&gt;resources&lt;/em&gt; (SRA Sample vs SRA Study) will have different data models
+(though some fields are common) from one another. To get a sense of
+what other &lt;em&gt;resources&lt;/em&gt; look like, try clicking through these
+links. For more details, see the data models for [SRA], [GEO], and
+[Biosample].&lt;/p&gt;
+&lt;p&gt;Additional examples include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments/SRX178456&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/experiments/SRX178456&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/runs/SRR543404&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/runs/SRR543404&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/biosample/samples/SAMD00000001&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/biosample/samples/SAMD00000001&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;get-records-related-to-an-accession&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Get records related to an accession&lt;/h3&gt;
+&lt;p&gt;Another common task is to find all the records of one type for a
+record of another type, e.g., all samples for a given study. For this
+section, we will make the workflow a bit more realistic. &lt;a href=&#34;https://mikelove.github.io/&#34;&gt;Mike Love&lt;/a&gt;
+routinely teaches about gene-level differential RNA-seq expression
+using the &lt;a href=&#34;https://bioconductor.org/packages/rnaseqGene/&#34;&gt;rnaseqGene Bioconductor
+workflow&lt;/a&gt;. After
+accessing the Bioconductor vignette, we note that the data used are
+from &lt;span class=&#34;citation&#34;&gt;[@Himes2014-zj]&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;To find SRA links from a PubMed record, look at the &lt;strong&gt;Related
+Information&lt;/strong&gt; section that will look like Figure
+&lt;a href=&#34;#fig:pubmedlinks&#34;&gt;2&lt;/a&gt;. Clicking on the &lt;strong&gt;SRA&lt;/strong&gt; link will reveal that
+thethe related SRA study is &lt;code&gt;SRP033351&lt;/code&gt;. Reviewing the single-record
+access approach from the last section, this URL returns the details of
+the study.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pubmedlinks&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;imgs/pubmed_links.png&#34; alt=&#34;When viewing a PubMed abstract, the Related Information section may have link(s) out to omics databases. Clicking through on one of these links will reveal an accession that can be used for accessing OmicIDX&#34; width=&#34;100%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: When viewing a PubMed abstract, the Related Information section may have link(s) out to omics databases. Clicking through on one of these links will reveal an accession that can be used for accessing OmicIDX
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Fetching all related samples given this study (see the [SRA data
+model section][SRA] for how samples relate to a study) is
+straightforward and the URL again follows a pattern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The URLs for all related experiment and run records are, respectively:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/experiments&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/experiments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/runs&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/runs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are additional examples of accessing related records:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/experiments&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/experiments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/runs&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/runs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/experiments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/samples/SRS357840/runs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;counting-and-paging-through-results&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Counting and paging through results&lt;/h2&gt;
+&lt;p&gt;API accesses and queries may include many millions of records, but the
+OmicIDX REST API limits resultsets to batches of size &amp;lt;1000 records in
+a single call to the API. This section addresses:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Choosing the number of results, or &lt;code&gt;size&lt;/code&gt;, that are returned by each API call.&lt;/li&gt;
+&lt;li&gt;Paging through very large resultsets in chunks using the &lt;em&gt;cursor&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;adjusting-the-page-size&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Adjusting the page &lt;em&gt;size&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Adding a &lt;code&gt;size&lt;/code&gt; parameter to the URL above
+modifies the &lt;em&gt;default resultset size of 10&lt;/em&gt; to be either smaller (down
+to zero) or larger (up to 999). An example URL including the size
+parameter looks like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2&#34; class=&#34;uri&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=2&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&amp;#39; \
+    size==2 \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {
+##     &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8U1JTNTA4NTY4&amp;quot;, 
+##     &amp;quot;hits&amp;quot;: [
+##         {
+##             &amp;quot;BioSample&amp;quot;: &amp;quot;SAMN02422675&amp;quot;, 
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS508567&amp;quot;, 
+##             &amp;quot;alias&amp;quot;: &amp;quot;GSM1275863&amp;quot;, 
+##             &amp;quot;attributes&amp;quot;: [
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;source_name&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;airway smooth muscle cells&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;treatment&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;Dexamethasone&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;tissue&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;human airway smooth muscle cells&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;ercc_mix&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;-&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;cell line&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;N61311&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;cell type&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;airway smooth muscle cells&amp;quot;
+##                 }
+##             ], 
+##             &amp;quot;experiment_count&amp;quot;: &amp;quot;1&amp;quot;, 
+##             &amp;quot;identifiers&amp;quot;: [
+##                 {
+##                     &amp;quot;id&amp;quot;: &amp;quot;SAMN02422675&amp;quot;, 
+##                     &amp;quot;namespace&amp;quot;: &amp;quot;BioSample&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;id&amp;quot;: &amp;quot;GSM1275863&amp;quot;, 
+##                     &amp;quot;namespace&amp;quot;: &amp;quot;GEO&amp;quot;
+##                 }
+##             ], 
+##             &amp;quot;insdc&amp;quot;: true, 
+##             &amp;quot;lastupdate&amp;quot;: &amp;quot;2014-11-07T22:00:54&amp;quot;, 
+##             &amp;quot;mean_bases_per_run&amp;quot;: 2665619082, 
+##             &amp;quot;organism&amp;quot;: &amp;quot;Homo sapiens&amp;quot;, 
+##             &amp;quot;published&amp;quot;: &amp;quot;2014-01-01T05:49:37&amp;quot;, 
+##             &amp;quot;received&amp;quot;: &amp;quot;2013-11-26T21:30:10&amp;quot;, 
+##             &amp;quot;run_count&amp;quot;: &amp;quot;1&amp;quot;, 
+##             &amp;quot;status&amp;quot;: &amp;quot;live&amp;quot;, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;BioProject&amp;quot;: &amp;quot;PRJNA229998&amp;quot;, 
+##                 &amp;quot;abstract&amp;quot;: &amp;quot;Rationale: Asthma is a chronic inflammatory airway disease. The most common medications used for its treatment are ß2-agonists and glucocorticosteroids, and one of the primary tissues that these drugs target in the treatment of asthma is the airway smooth muscle. We used RNA-Seq to characterize the human airway smooth muscle (HASM) transcriptome at baseline and under three asthma treatment conditions. Methods: The Illumina TruSeq assay was used to prepare 75bp paired-end libraries for HASM cells from four white male donors under four treatment conditions: 1) no treatment; 2) treatment with a ß2-agonist (i.e. Albuterol, 1µM for 18h); 3) treatment with a glucocorticosteroid (i.e. Dexamethasone (Dex), 1µM for 18h); 4) simultaneous treatment with a ß2-agonist and glucocorticoid, and the libraries were sequenced with an Illumina Hi-Seq 2000 instrument. The Tuxedo Suite Tools were used to align reads to the hg19 reference genome, assemble transcripts, and perform differential expression analysis using the protocol described in https://github.com/blancahimes/taffeta Overall design: mRNA profiles obtained via RNA-Seq for four primary human airway smooth muscle cell lines that were treated with dexamethasone, albuterol, dexamethasone+albuterol or were left untreated.&amp;quot;, 
+##                 &amp;quot;accession&amp;quot;: &amp;quot;SRP033351&amp;quot;, 
+##                 &amp;quot;alias&amp;quot;: &amp;quot;GSE52778&amp;quot;, 
+##                 &amp;quot;attributes&amp;quot;: [], 
+##                 &amp;quot;center_name&amp;quot;: &amp;quot;GEO&amp;quot;, 
+##                 &amp;quot;identifiers&amp;quot;: [
+##                     {
+##                         &amp;quot;id&amp;quot;: &amp;quot;PRJNA229998&amp;quot;, 
+##                         &amp;quot;namespace&amp;quot;: &amp;quot;BioProject&amp;quot;
+##                     }, 
+##                     {
+##                         &amp;quot;id&amp;quot;: &amp;quot;GSE52778&amp;quot;, 
+##                         &amp;quot;namespace&amp;quot;: &amp;quot;GEO&amp;quot;
+##                     }
+##                 ], 
+##                 &amp;quot;insdc&amp;quot;: true, 
+##                 &amp;quot;lastupdate&amp;quot;: &amp;quot;2018-06-12T17:05:25&amp;quot;, 
+##                 &amp;quot;published&amp;quot;: &amp;quot;2014-01-02T14:16:11&amp;quot;, 
+##                 &amp;quot;pubmed_ids&amp;quot;: [
+##                     &amp;quot;24926665&amp;quot;
+##                 ], 
+##                 &amp;quot;received&amp;quot;: &amp;quot;2013-11-26T21:29:11&amp;quot;, 
+##                 &amp;quot;status&amp;quot;: &amp;quot;live&amp;quot;, 
+##                 &amp;quot;study_type&amp;quot;: &amp;quot;Transcriptome Analysis&amp;quot;, 
+##                 &amp;quot;title&amp;quot;: &amp;quot;Human Airway Smooth Muscle Transcriptome Changes in Response to Asthma Medications&amp;quot;
+##             }, 
+##             &amp;quot;taxon_id&amp;quot;: &amp;quot;9606&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;N61311_Dex&amp;quot;, 
+##             &amp;quot;total_bases&amp;quot;: &amp;quot;2665619082&amp;quot;, 
+##             &amp;quot;total_spots&amp;quot;: &amp;quot;21155707&amp;quot;, 
+##             &amp;quot;xrefs&amp;quot;: [
+##                 {
+##                     &amp;quot;db&amp;quot;: &amp;quot;bioproject&amp;quot;, 
+##                     &amp;quot;id&amp;quot;: &amp;quot;229998&amp;quot;
+##                 }
+##             ]
+##         }, 
+##         {
+##             &amp;quot;BioSample&amp;quot;: &amp;quot;SAMN02422669&amp;quot;, 
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS508568&amp;quot;, 
+##             &amp;quot;alias&amp;quot;: &amp;quot;GSM1275862&amp;quot;, 
+##             &amp;quot;attributes&amp;quot;: [
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;source_name&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;airway smooth muscle cells&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;treatment&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;Untreated&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;tissue&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;human airway smooth muscle cells&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;ercc_mix&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;-&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;cell line&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;N61311&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;tag&amp;quot;: &amp;quot;cell type&amp;quot;, 
+##                     &amp;quot;value&amp;quot;: &amp;quot;airway smooth muscle cells&amp;quot;
+##                 }
+##             ], 
+##             &amp;quot;experiment_count&amp;quot;: &amp;quot;1&amp;quot;, 
+##             &amp;quot;identifiers&amp;quot;: [
+##                 {
+##                     &amp;quot;id&amp;quot;: &amp;quot;SAMN02422669&amp;quot;, 
+##                     &amp;quot;namespace&amp;quot;: &amp;quot;BioSample&amp;quot;
+##                 }, 
+##                 {
+##                     &amp;quot;id&amp;quot;: &amp;quot;GSM1275862&amp;quot;, 
+##                     &amp;quot;namespace&amp;quot;: &amp;quot;GEO&amp;quot;
+##                 }
+##             ], 
+##             &amp;quot;insdc&amp;quot;: true, 
+##             &amp;quot;lastupdate&amp;quot;: &amp;quot;2014-11-07T22:00:54&amp;quot;, 
+##             &amp;quot;mean_bases_per_run&amp;quot;: 2889875646, 
+##             &amp;quot;organism&amp;quot;: &amp;quot;Homo sapiens&amp;quot;, 
+##             &amp;quot;published&amp;quot;: &amp;quot;2014-01-01T05:49:38&amp;quot;, 
+##             &amp;quot;received&amp;quot;: &amp;quot;2013-11-26T21:30:11&amp;quot;, 
+##             &amp;quot;run_count&amp;quot;: &amp;quot;1&amp;quot;, 
+##             &amp;quot;status&amp;quot;: &amp;quot;live&amp;quot;, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;BioProject&amp;quot;: &amp;quot;PRJNA229998&amp;quot;, 
+##                 &amp;quot;abstract&amp;quot;: &amp;quot;Rationale: Asthma is a chronic inflammatory airway disease. The most common medications used for its treatment are ß2-agonists and glucocorticosteroids, and one of the primary tissues that these drugs target in the treatment of asthma is the airway smooth muscle. We used RNA-Seq to characterize the human airway smooth muscle (HASM) transcriptome at baseline and under three asthma treatment conditions. Methods: The Illumina TruSeq assay was used to prepare 75bp paired-end libraries for HASM cells from four white male donors under four treatment conditions: 1) no treatment; 2) treatment with a ß2-agonist (i.e. Albuterol, 1µM for 18h); 3) treatment with a glucocorticosteroid (i.e. Dexamethasone (Dex), 1µM for 18h); 4) simultaneous treatment with a ß2-agonist and glucocorticoid, and the libraries were sequenced with an Illumina Hi-Seq 2000 instrument. The Tuxedo Suite Tools were used to align reads to the hg19 reference genome, assemble transcripts, and perform differential expression analysis using the protocol described in https://github.com/blancahimes/taffeta Overall design: mRNA profiles obtained via RNA-Seq for four primary human airway smooth muscle cell lines that were treated with dexamethasone, albuterol, dexamethasone+albuterol or were left untreated.&amp;quot;, 
+##                 &amp;quot;accession&amp;quot;: &amp;quot;SRP033351&amp;quot;, 
+##                 &amp;quot;alias&amp;quot;: &amp;quot;GSE52778&amp;quot;, 
+##                 &amp;quot;attributes&amp;quot;: [], 
+##                 &amp;quot;center_name&amp;quot;: &amp;quot;GEO&amp;quot;, 
+##                 &amp;quot;identifiers&amp;quot;: [
+##                     {
+##                         &amp;quot;id&amp;quot;: &amp;quot;PRJNA229998&amp;quot;, 
+##                         &amp;quot;namespace&amp;quot;: &amp;quot;BioProject&amp;quot;
+##                     }, 
+##                     {
+##                         &amp;quot;id&amp;quot;: &amp;quot;GSE52778&amp;quot;, 
+##                         &amp;quot;namespace&amp;quot;: &amp;quot;GEO&amp;quot;
+##                     }
+##                 ], 
+##                 &amp;quot;insdc&amp;quot;: true, 
+##                 &amp;quot;lastupdate&amp;quot;: &amp;quot;2018-06-12T17:05:25&amp;quot;, 
+##                 &amp;quot;published&amp;quot;: &amp;quot;2014-01-02T14:16:11&amp;quot;, 
+##                 &amp;quot;pubmed_ids&amp;quot;: [
+##                     &amp;quot;24926665&amp;quot;
+##                 ], 
+##                 &amp;quot;received&amp;quot;: &amp;quot;2013-11-26T21:29:11&amp;quot;, 
+##                 &amp;quot;status&amp;quot;: &amp;quot;live&amp;quot;, 
+##                 &amp;quot;study_type&amp;quot;: &amp;quot;Transcriptome Analysis&amp;quot;, 
+##                 &amp;quot;title&amp;quot;: &amp;quot;Human Airway Smooth Muscle Transcriptome Changes in Response to Asthma Medications&amp;quot;
+##             }, 
+##             &amp;quot;taxon_id&amp;quot;: &amp;quot;9606&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;N61311_untreated&amp;quot;, 
+##             &amp;quot;total_bases&amp;quot;: &amp;quot;2889875646&amp;quot;, 
+##             &amp;quot;total_spots&amp;quot;: &amp;quot;22935521&amp;quot;, 
+##             &amp;quot;xrefs&amp;quot;: [
+##                 {
+##                     &amp;quot;db&amp;quot;: &amp;quot;bioproject&amp;quot;, 
+##                     &amp;quot;id&amp;quot;: &amp;quot;229998&amp;quot;
+##                 }
+##             ]
+##         }
+##     ], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 2, 
+##         &amp;quot;total&amp;quot;: 16
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using a &lt;code&gt;size&lt;/code&gt; of zero (0) is useful to capture just the count of the number of records.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples?size=0&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&amp;#39; \
+    size==0 \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {
+##     &amp;quot;cursor&amp;quot;: null, 
+##     &amp;quot;hits&amp;quot;: [], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 0, 
+##         &amp;quot;total&amp;quot;: 16
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the &lt;code&gt;stats.total&lt;/code&gt; part of the output gives the number
+&lt;code&gt;16&lt;/code&gt;. All data resultsets from the OmicIDX API will include this
+annotation, giving the total number of results available given the
+query or URL.&lt;/p&gt;
+&lt;p&gt;Another, larger study, such at GTeX (SRP015892) offers many more
+samples. But how many?&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=0&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&amp;#39; \
+    size==0 \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {
+##     &amp;quot;cursor&amp;quot;: null, 
+##     &amp;quot;hits&amp;quot;: [], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 0, 
+##         &amp;quot;total&amp;quot;: 14249
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Therefore, the &lt;code&gt;size&lt;/code&gt; parameter varies the number of results returned
+by an API call. Using a &lt;code&gt;size&lt;/code&gt; of zero (0) is a quick-and-dirty
+approach to get a count of the number of records that would be
+returned by an API call. This same trick can be used when counting
+&lt;code&gt;search&lt;/code&gt; results below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-the-cursor-to-page-through-large-result-sets.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Using the &lt;em&gt;cursor&lt;/em&gt; to page through large result sets.&lt;/h3&gt;
+&lt;p&gt;The limitation on result set size is to mitigate problems with network
+connectivity and to simplify somewhat the database backend
+infrastructure. However, there are definitely result sets that are
+larger than 999 records. How do we deal with that situation?&lt;/p&gt;
+&lt;p&gt;The OmicIDX API uses &lt;code&gt;paging&lt;/code&gt;. In particular, the API uses
+&lt;a href=&#34;https://stackoverflow.com/a/49612308/459633&#34;&gt;cursor-based
+paging&lt;/a&gt;. For each
+result set that the API returns, if more results are available, there
+will be a &lt;code&gt;cursor&lt;/code&gt; field available that can be used as a parameter to
+the &lt;em&gt;next&lt;/em&gt; API call to start with results &lt;em&gt;after&lt;/em&gt; the cursor. Perhaps
+it is easier to explain with an example:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&amp;#39; \
+    size==5 \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you run the line above, the result will include a &lt;code&gt;&amp;quot;cursor&amp;quot;: &amp;quot;LONG....STRING&amp;quot;&lt;/code&gt; that might look like the following (your cursor may
+be different).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;...
+  ],
+  &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&amp;quot;,
+  &amp;quot;stats&amp;quot;: {
+    &amp;quot;total&amp;quot;: 14249,
+    &amp;quot;took&amp;quot;: 10
+  },
+  &amp;quot;success&amp;quot;: true
+}
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Adding the cursor as a parameter to the same URL retrieves the next 5 results like so:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;amp;cursor=X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&amp;#39; \
+    size==5 \
+    &amp;#39;cursor==X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&amp;#39; \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The next cursor value will look similar (for example,
+“X2lkfHxhc2N8fHx8U1JTMTAxNzE0Mg==”). Continuing to play this game of
+specifying the cursor when it is available allows &lt;em&gt;paging&lt;/em&gt; through the
+result set. When fetching results, the cursor will be available until
+there are no more results to be fetched. Thus, when there is not a
+&lt;code&gt;cursor&lt;/code&gt; entry in the results, all results have been retrieved and any
+looping code can stop.&lt;/p&gt;
+&lt;p&gt;Note a few assumptions/caveats here.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The &lt;code&gt;size&lt;/code&gt; parameter dictates the number of results in one “page”.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;cursor&lt;/code&gt; parameter is specific to the search or API
+query. Cursors cannot be reused across different queries.&lt;/li&gt;
+&lt;li&gt;When calling the API, the query should remain fixed when paging
+with a cursor (ie., use the same URL over again, changing only the
+cursor value).&lt;/li&gt;
+&lt;li&gt;Underlying the cursor functionality is a fixed sorting order (that
+is not currently a parameter that can be tweeked).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customizing-returned-fields&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Customizing returned fields&lt;/h2&gt;
+&lt;div id=&#34;listing-available-fields&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Listing available fields&lt;/h3&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/_mapping/study&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/_mapping/study&amp;#39; \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;BioProject&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;abstract&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;accession&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;alias&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;attributes.tag&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;attributes.value&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;keyword&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;broker_name&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;center_name&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;description&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;experiment_count&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;identifiers.id&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: true, 
+##         &amp;quot;path&amp;quot;: &amp;quot;identifiers&amp;quot;, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;identifiers.namespace&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: true, 
+##         &amp;quot;path&amp;quot;: &amp;quot;identifiers&amp;quot;, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;insdc&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;boolean&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;lastupdate&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;mean_bases_per_run&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;float&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;published&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;pubmed_ids&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;received&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;run_count&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;sample_count&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;status&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;study_type&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;taxon_ids&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;title&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: true, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;total_bases&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;long&amp;quot;
+##     }, 
+##     {
+##         &amp;quot;field&amp;quot;: &amp;quot;total_spots&amp;quot;, 
+##         &amp;quot;keyword&amp;quot;: false, 
+##         &amp;quot;nested&amp;quot;: false, 
+##         &amp;quot;type&amp;quot;: &amp;quot;long&amp;quot;
+##     }
+## ]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-or-excluding-specific-fields-from-results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Including or excluding specific fields from results&lt;/h3&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# curl -s &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;amp;include_fields=accession&amp;amp;include_fields=title&amp;#39;
+http &amp;#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&amp;#39; \
+    &amp;#39;size==5&amp;#39; &amp;#39;include_fields==accession&amp;#39; \
+    &amp;#39;include_fields==title&amp;#39; \
+    --pretty format&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {
+##     &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8U1JTMTAxNzEzNw==&amp;quot;, 
+##     &amp;quot;hits&amp;quot;: [
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS1017133&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;Non-tumor RNA:Total RNA sample from Skin - Sun Exposed (Lower leg) of a human female participant in the dbGaP study \&amp;quot;Genotype-Tissue Expression (GTEx)\&amp;quot;&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS1017134&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;Non-tumor RNA:Total RNA sample from Testis of a human male participant in the dbGaP study \&amp;quot;Genotype-Tissue Expression (GTEx)\&amp;quot;&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS1017135&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;Non-tumor RNA:Total RNA sample from Thyroid of a human male participant in the dbGaP study \&amp;quot;Genotype-Tissue Expression (GTEx)\&amp;quot;&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS1017136&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;Non-tumor RNA:Total RNA sample from Thyroid of a human male participant in the dbGaP study \&amp;quot;Genotype-Tissue Expression (GTEx)\&amp;quot;&amp;quot;
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;SRS1017137&amp;quot;, 
+##             &amp;quot;title&amp;quot;: &amp;quot;Non-tumor RNA:Total RNA sample from Stomach of a human male participant in the dbGaP study \&amp;quot;Genotype-Tissue Expression (GTEx)\&amp;quot;&amp;quot;
+##         }
+##     ], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 10, 
+##         &amp;quot;total&amp;quot;: 14249
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;search&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Search&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Decide what you want to search for: studies, samples, experiments, or runs.&lt;/li&gt;
+&lt;li&gt;Take a look at the output of one of the API calls on the previous slide for the entity type you want to search for.&lt;/li&gt;
+&lt;li&gt;Look closely at the field names and what is in them.&lt;/li&gt;
+&lt;li&gt;Form the query using &lt;a href=&#34;https://lucene.apache.org/core/2_9_4/queryparsersyntax.html&#34;&gt;lucene query syntax&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Form the URL based like so, using &lt;code&gt;q=&lt;/code&gt; to specify the query string. For example, to find all human RNA-seq experiments:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments?q=library_strategy:%22RNA-Seq%22%20AND%20sample.taxon_id:9606&#34;&gt;&lt;code&gt;https://api.omicidx.cancerdatasci.org/sra/experiments?q=library_strategy:&amp;quot;RNA-Seq&amp;quot; AND sample.taxon_id:9606&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The number of records can be tuned using &lt;code&gt;size=....&lt;/code&gt; (up to 999 records).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;aggregation-and-basic-analytics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Aggregation and basic analytics&lt;/h2&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
