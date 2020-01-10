@@ -1,0 +1,19 @@
+---
+title: "Extended Examples and Use Cases"
+linkTitle: "Additional Examples"
+weight: 50
+description: >
+  Browse additional examples or the web service in action.
+---
+
+### ID mapping
+
+```{bash}
+http --pretty format 'https://api.omicidx.cancerdatasci.org/sra/runs' \
+    'size==3' \
+	'include_fields==accession' \
+	'include_fields==experiment.accession' \
+	'include_fields==study.accession' \
+	'include_fields==sample.accession' 
+
+```

@@ -14,6 +14,20 @@
     
     
     <item>
+      <title>Docs: What is a web API?</title>
+      <link>/docs/open-web-api/web-api-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is a test.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Background</title>
       <link>/docs/open-web-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -921,7 +935,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#3
 ##         }
 ##     ], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 11, 
+##         &amp;quot;took&amp;quot;: 8, 
 ##         &amp;quot;total&amp;quot;: 14249
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -948,15 +962,70 @@ records).&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: What is a web API?</title>
-      <link>/docs/open-web-api/web-api-overview/</link>
+      <title>Docs: Extended Examples and Use Cases</title>
+      <link>/docs/open-web-api/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <guid>/docs/open-web-api/examples/</guid>
       <description>
         
         
-        &lt;p&gt;This is a test.&lt;/p&gt;
+        &lt;h3 id=&#34;id-mapping&#34;&gt;ID mapping&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;http --pretty format &#39;https://api.omicidx.cancerdatasci.org/sra/runs&#39; \
+    &#39;size==3&#39; \
+    &#39;include_fields==accession&#39; \
+    &#39;include_fields==experiment.accession&#39; \
+    &#39;include_fields==study.accession&#39; \
+    &#39;include_fields==sample.accession&#39; 
+
+## {
+##     &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8RFJSMDAwMDAz&amp;quot;, 
+##     &amp;quot;facets&amp;quot;: [], 
+##     &amp;quot;hits&amp;quot;: [
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000001&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000001&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000001&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000001&amp;quot;
+##             }
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000002&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000002&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000002&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000002&amp;quot;
+##             }
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000003&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000003&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000003&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000003&amp;quot;
+##             }
+##         }
+##     ], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 2409.0, 
+##         &amp;quot;total&amp;quot;: 8811379
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }
+&lt;/code&gt;&lt;/pre&gt;
 
       </description>
     </item>

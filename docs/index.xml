@@ -14,6 +14,116 @@
     
     
     <item>
+      <title>Docs: What is a web API?</title>
+      <link>/docs/open-web-api/web-api-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is a test.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: What is Bigquery and why should I use it?</title>
+      <link>/docs/bigquery/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/introduction/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;the-cloud-console&#34;&gt;The cloud console&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Account Setup</title>
+      <link>/docs/bigquery/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/setup/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;initial-setup&#34;&gt;Initial setup&lt;/h2&gt;
+&lt;h3 id=&#34;no-existing-gcp-account-or-billing&#34;&gt;No existing GCP account or billing&lt;/h3&gt;
+&lt;p&gt;Bigquery is a cloud service run by Google. If you already have a Google
+Cloud Platform (GCP) account and a project with billing enabled, &lt;em&gt;skip
+to the &lt;a href=&#34;#existing-gcp-account-or-project&#34;&gt;Existing GCP account or
+project&lt;/a&gt;&lt;/em&gt; section below.&lt;/p&gt;
+&lt;p&gt;The BigQuery sandbox is available to anyone with a Google Cloud Platform
+account. If you do not have such an account, you can get started using
+the GCP free trial, &lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;click here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The BigQuery sandbox gives free access to the power of BigQuery subject
+to the sandbox’s
+&lt;a href=&#34;https://cloud.google.com/bigquery/docs/sandbox#limits&#34;&gt;limits&lt;/a&gt;. The
+sandbox allows use of the web UI in the Cloud Console without providing
+a credit card. Use the sandbox without creating a billing account or
+enabling billing for your project.&lt;/p&gt;
+&lt;p&gt;The web UI is the graphical interface used to create and manage BigQuery
+resources and to run SQL queries.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To open the sandbox, click
+&lt;a href=&#34;https://console.cloud.google.com/bigquery&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Accept the terms of service.&lt;/li&gt;
+&lt;li&gt;Before you can use the BigQuery sandbox, you must create a project.
+Follow the prompts to create your new project.&lt;/li&gt;
+&lt;li&gt;After you create your project, the BigQuery web UI will display a
+sandbox banner like the following.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloud.google.com/bigquery/images/sandbox.png&#34; alt=&#34;Sandbox&#34;&gt;&lt;/p&gt;
+&lt;p&gt;While using the sandbox, there is no need to create a billing account
+(supply a credit card), and you do not need to attach a billing account
+to the project.&lt;/p&gt;
+&lt;h3 id=&#34;existing-gcp-account-or-project&#34;&gt;Existing GCP account or project&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;If you have a Google Cloud Platform billing account already&lt;/em&gt;, you can
+choose to either [create a new project] and use it or choose an
+existing project. Unlike the [Bigquery sandbox][Get started with the
+BigQuery sandbox], using a project with billing attached means that 1)
+the account will accrue charges and 2) usage will not be subject to the
+Sandbox limits.&lt;/p&gt;
+&lt;h2 id=&#34;access-the-omicidx-bigquery-dataset&#34;&gt;Access the OmicIDX Bigquery Dataset&lt;/h2&gt;
+&lt;p&gt;Navigate to the &lt;a href=&#34;https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;amp;folder&amp;amp;organizationId&amp;amp;p=isb-cgc-01-0006&amp;amp;d=omicidx&amp;amp;page=dataset&#34;&gt;Bigquery dataset on Google Cloud
+Platform&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Bigquery console is an online portal that allows basic queries and
+data exploration of BigQuery datasets. Upon opening the OmicIDX BigQuery
+link, the console should open with the OmicIDX dataset already available
+in the dataset window.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_landing.png&#34; alt=&#34;The OmicIDX dataset appears in the left &amp;quot;dataset&amp;quot; window.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+The OmicIDX dataset appears in the left “dataset” window.
+&lt;/p&gt;
+&lt;!--html_preserve--&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;“Notice”&lt;/h4&gt;
+After clicking on the OmicIDX dataset in
+the navigation window, “pinning” the OmicIDX dataset will keep it
+available when you come back to Bigquery. You can always click the link
+above again if you forget.
+&lt;/div&gt;
+&lt;!--/html_preserve--&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Users interact with Bigquery in one of three ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Background</title>
       <link>/docs/open-web-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -921,7 +1031,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#3
 ##         }
 ##     ], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 11, 
+##         &amp;quot;took&amp;quot;: 8, 
 ##         &amp;quot;total&amp;quot;: 14249
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -948,111 +1058,70 @@ records).&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: What is a web API?</title>
-      <link>/docs/open-web-api/web-api-overview/</link>
+      <title>Docs: Extended Examples and Use Cases</title>
+      <link>/docs/open-web-api/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <guid>/docs/open-web-api/examples/</guid>
       <description>
         
         
-        &lt;p&gt;This is a test.&lt;/p&gt;
+        &lt;h3 id=&#34;id-mapping&#34;&gt;ID mapping&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;http --pretty format &#39;https://api.omicidx.cancerdatasci.org/sra/runs&#39; \
+    &#39;size==3&#39; \
+    &#39;include_fields==accession&#39; \
+    &#39;include_fields==experiment.accession&#39; \
+    &#39;include_fields==study.accession&#39; \
+    &#39;include_fields==sample.accession&#39; 
 
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: What is Bigquery and why should I use it?</title>
-      <link>/docs/bigquery/introduction/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/bigquery/introduction/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;the-cloud-console&#34;&gt;The cloud console&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Account Setup</title>
-      <link>/docs/bigquery/setup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/bigquery/setup/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;initial-setup&#34;&gt;Initial setup&lt;/h2&gt;
-&lt;h3 id=&#34;no-existing-gcp-account-or-billing&#34;&gt;No existing GCP account or billing&lt;/h3&gt;
-&lt;p&gt;Bigquery is a cloud service run by Google. If you already have a Google
-Cloud Platform (GCP) account and a project with billing enabled, &lt;em&gt;skip
-to the &lt;a href=&#34;#existing-gcp-account-or-project&#34;&gt;Existing GCP account or
-project&lt;/a&gt;&lt;/em&gt; section below.&lt;/p&gt;
-&lt;p&gt;The BigQuery sandbox is available to anyone with a Google Cloud Platform
-account. If you do not have such an account, you can get started using
-the GCP free trial, &lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;click here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The BigQuery sandbox gives free access to the power of BigQuery subject
-to the sandbox’s
-&lt;a href=&#34;https://cloud.google.com/bigquery/docs/sandbox#limits&#34;&gt;limits&lt;/a&gt;. The
-sandbox allows use of the web UI in the Cloud Console without providing
-a credit card. Use the sandbox without creating a billing account or
-enabling billing for your project.&lt;/p&gt;
-&lt;p&gt;The web UI is the graphical interface used to create and manage BigQuery
-resources and to run SQL queries.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;To open the sandbox, click
-&lt;a href=&#34;https://console.cloud.google.com/bigquery&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Accept the terms of service.&lt;/li&gt;
-&lt;li&gt;Before you can use the BigQuery sandbox, you must create a project.
-Follow the prompts to create your new project.&lt;/li&gt;
-&lt;li&gt;After you create your project, the BigQuery web UI will display a
-sandbox banner like the following.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://cloud.google.com/bigquery/images/sandbox.png&#34; alt=&#34;Sandbox&#34;&gt;&lt;/p&gt;
-&lt;p&gt;While using the sandbox, there is no need to create a billing account
-(supply a credit card), and you do not need to attach a billing account
-to the project.&lt;/p&gt;
-&lt;h3 id=&#34;existing-gcp-account-or-project&#34;&gt;Existing GCP account or project&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;If you have a Google Cloud Platform billing account already&lt;/em&gt;, you can
-choose to either [create a new project] and use it or choose an
-existing project. Unlike the [Bigquery sandbox][Get started with the
-BigQuery sandbox], using a project with billing attached means that 1)
-the account will accrue charges and 2) usage will not be subject to the
-Sandbox limits.&lt;/p&gt;
-&lt;h2 id=&#34;access-the-omicidx-bigquery-dataset&#34;&gt;Access the OmicIDX Bigquery Dataset&lt;/h2&gt;
-&lt;p&gt;Navigate to the &lt;a href=&#34;https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;amp;folder&amp;amp;organizationId&amp;amp;p=isb-cgc-01-0006&amp;amp;d=omicidx&amp;amp;page=dataset&#34;&gt;Bigquery dataset on Google Cloud
-Platform&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The Bigquery console is an online portal that allows basic queries and
-data exploration of BigQuery datasets. Upon opening the OmicIDX BigQuery
-link, the console should open with the OmicIDX dataset already available
-in the dataset window.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_landing.png&#34; alt=&#34;The OmicIDX dataset appears in the left &amp;quot;dataset&amp;quot; window.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
-&lt;p class=&#34;caption&#34;&gt;
-The OmicIDX dataset appears in the left “dataset” window.
-&lt;/p&gt;
-&lt;!--html_preserve--&gt;
-&lt;p&gt;
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;“Notice”&lt;/h4&gt;
-After clicking on the OmicIDX dataset in
-the navigation window, “pinning” the OmicIDX dataset will keep it
-available when you come back to Bigquery. You can always click the link
-above again if you forget.
-&lt;/div&gt;
-&lt;!--/html_preserve--&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Clicking the “pin” button on the right will keep the OmicIDX dataset in
-your dataset navigator for easy access.
-&lt;/p&gt;
-&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;p&gt;Users interact with Bigquery in one of three ways:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+## {
+##     &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8RFJSMDAwMDAz&amp;quot;, 
+##     &amp;quot;facets&amp;quot;: [], 
+##     &amp;quot;hits&amp;quot;: [
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000001&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000001&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000001&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000001&amp;quot;
+##             }
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000002&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000002&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000002&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000002&amp;quot;
+##             }
+##         }, 
+##         {
+##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000003&amp;quot;, 
+##             &amp;quot;experiment&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000003&amp;quot;
+##             }, 
+##             &amp;quot;sample&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000003&amp;quot;
+##             }, 
+##             &amp;quot;study&amp;quot;: {
+##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000003&amp;quot;
+##             }
+##         }
+##     ], 
+##     &amp;quot;stats&amp;quot;: {
+##         &amp;quot;took&amp;quot;: 2409.0, 
+##         &amp;quot;total&amp;quot;: 8811379
+##     }, 
+##     &amp;quot;success&amp;quot;: true
+## }
+&lt;/code&gt;&lt;/pre&gt;
 
       </description>
     </item>

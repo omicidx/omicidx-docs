@@ -20,21 +20,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>OmicIDX</title><meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<title>Extended Examples and Use Cases | OmicIDX</title><meta property="og:title" content="Extended Examples and Use Cases" />
+<meta property="og:description" content="Browse additional examples or the web service in action.
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/bigquery/analytics/" />
+<meta property="og:url" content="/docs/open-web-api/examples/" />
 <meta property="og:site_name" content="OmicIDX" />
-<meta itemprop="name" content="">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Extended Examples and Use Cases">
+<meta itemprop="description" content="Browse additional examples or the web service in action.
+">
 
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="138">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Extended Examples and Use Cases"/>
+<meta name="twitter:description" content="Browse additional examples or the web service in action.
+"/>
 
 
 
@@ -55,7 +58,7 @@
   crossorigin="anonymous"></script>
 
 
-    <title>OmicIDX</title>
+    <title>Extended Examples and Use Cases | OmicIDX</title>
   </head>
   <body class="td-page">
     <header>
@@ -204,10 +207,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/bigquery/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Bigquery Data Warehouse</a>
+    <a  href="/docs/bigquery/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Bigquery Data Warehouse</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsbigquery">
+    <li class="collapse " id="docsbigquery">
       
       
       
@@ -226,7 +229,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsbigqueryanalytics" href="/docs/bigquery/analytics/"></a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbigqueryanalytics" href="/docs/bigquery/analytics/"></a>
       
       
       
@@ -257,10 +260,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/open-web-api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Open Web API</a>
+    <a  href="/docs/open-web-api/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Open Web API</a>
   </li>
   <ul>
-    <li class="collapse " id="docsopen-web-api">
+    <li class="collapse show" id="docsopen-web-api">
       
       
       
@@ -279,7 +282,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsopen-web-apiexamples" href="/docs/open-web-api/examples/">Additional Examples</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsopen-web-apiexamples" href="/docs/open-web-api/examples/">Additional Examples</a>
       
       
     </li>
@@ -381,8 +384,8 @@
 
 
 
-<a href="https://github.com/omicidx/omicidx-docx/edit/master/content/en/docs/bigquery/analytics/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/omicidx/omicidx-docx/issues/new?title=" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/omicidx/omicidx-docx/edit/master/content/en/docs/open-web-api/examples/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/omicidx/omicidx-docx/issues/new?title=Extended%20Examples%20and%20Use%20Cases" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
 <a href="https://github.com/omicidx/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -419,14 +422,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/bigquery/">Bigquery Data Warehouse</a>
+	<a href="/docs/open-web-api/">Open Web API</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/bigquery/analytics/"></a>
+	<a href="/docs/open-web-api/examples/">Additional Examples</a>
 </li>
 
 	</ol>
@@ -434,9 +437,65 @@
 
             
 <div class="td-content">
-	<h1></h1>
-	
-	
+	<h1>Extended Examples and Use Cases</h1>
+	<div class="lead">Browse additional examples or the web service in action.</div>
+	<h3 id="id-mapping">ID mapping</h3>
+<pre><code>http --pretty format 'https://api.omicidx.cancerdatasci.org/sra/runs' \
+    'size==3' \
+    'include_fields==accession' \
+    'include_fields==experiment.accession' \
+    'include_fields==study.accession' \
+    'include_fields==sample.accession' 
+
+## {
+##     &quot;cursor&quot;: &quot;X2lkfHxhc2N8fHx8RFJSMDAwMDAz&quot;, 
+##     &quot;facets&quot;: [], 
+##     &quot;hits&quot;: [
+##         {
+##             &quot;accession&quot;: &quot;DRR000001&quot;, 
+##             &quot;experiment&quot;: {
+##                 &quot;accession&quot;: &quot;DRX000001&quot;
+##             }, 
+##             &quot;sample&quot;: {
+##                 &quot;accession&quot;: &quot;DRS000001&quot;
+##             }, 
+##             &quot;study&quot;: {
+##                 &quot;accession&quot;: &quot;DRP000001&quot;
+##             }
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;DRR000002&quot;, 
+##             &quot;experiment&quot;: {
+##                 &quot;accession&quot;: &quot;DRX000002&quot;
+##             }, 
+##             &quot;sample&quot;: {
+##                 &quot;accession&quot;: &quot;DRS000002&quot;
+##             }, 
+##             &quot;study&quot;: {
+##                 &quot;accession&quot;: &quot;DRP000002&quot;
+##             }
+##         }, 
+##         {
+##             &quot;accession&quot;: &quot;DRR000003&quot;, 
+##             &quot;experiment&quot;: {
+##                 &quot;accession&quot;: &quot;DRX000003&quot;
+##             }, 
+##             &quot;sample&quot;: {
+##                 &quot;accession&quot;: &quot;DRS000003&quot;
+##             }, 
+##             &quot;study&quot;: {
+##                 &quot;accession&quot;: &quot;DRP000003&quot;
+##             }
+##         }
+##     ], 
+##     &quot;stats&quot;: {
+##         &quot;took&quot;: 2409.0, 
+##         &quot;total&quot;: 8811379
+##     }, 
+##     &quot;success&quot;: true
+## }
+</code></pre>
+
 	
 		<style>
   .feedback--answer {
