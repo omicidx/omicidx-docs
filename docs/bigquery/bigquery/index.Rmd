@@ -1,12 +1,12 @@
 ---
-title: "Bigquery Data Warehouse"
-linkTitle: "Bigquery Data Warehouse"
-weight: 1
+title: "Account Setup"
+linkTitle: "Account Setup"
+weight: 10
 description: >
-  This section describes the OmicIDX Bigquery data warehouse.
+  Use SQL Google Cloud Bigquery to search and analyze preloaded omics metadata and integrate with external datasets.
 ---
 
-**WORK-IN-PROGRESS**
+## Setup Google Cloud Bigquery
 
 ## SQL Primer
 

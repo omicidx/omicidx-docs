@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>OmicIDX – OmicIDX Data in Google Bigquery</title>
-    <link>/omicidx-docs/docs/bigquery/</link>
-    <description>Recent content in OmicIDX Data in Google Bigquery on OmicIDX</description>
+    <title>OmicIDX – Bigquery Data Warehouse</title>
+    <link>/docs/bigquery/</link>
+    <description>Recent content in Bigquery Data Warehouse on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/omicidx-docs/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -14,51 +14,137 @@
     
     
     <item>
-      <title>Docs: Bigquery Data Warehouse</title>
-      <link>/omicidx-docs/docs/bigquery/bigquery/</link>
+      <title>Docs: What is Bigquery and why should I use it?</title>
+      <link>/docs/bigquery/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/bigquery/bigquery/</guid>
+      <guid>/docs/bigquery/introduction/</guid>
       <description>
         
         
-        &lt;p&gt;&lt;strong&gt;WORK-IN-PROGRESS&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;sql-primer&#34;&gt;SQL Primer&lt;/h2&gt;
-&lt;p&gt;Structured Query Language (SQL, pronounced “sequel”), is the lingua
-franca for interacting with databases. Some tutorials for working with
-SQL….&lt;/p&gt;
-&lt;h2 id=&#34;what-is-bigquery&#34;&gt;What is Bigquery?&lt;/h2&gt;
-&lt;p&gt;Bigquery is a cloud database, data warehouse, and analytics platform and
-is hosted by Google in the cloud.&lt;/p&gt;
+        &lt;h2 id=&#34;the-cloud-console&#34;&gt;The cloud console&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Account Setup</title>
+      <link>/docs/bigquery/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/setup/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;initial-setup&#34;&gt;Initial setup&lt;/h2&gt;
+&lt;h3 id=&#34;no-existing-gcp-account-or-billing&#34;&gt;No existing GCP account or billing&lt;/h3&gt;
+&lt;p&gt;Bigquery is a cloud service run by Google. If you already have a Google
+Cloud Platform (GCP) account and a project with billing enabled, &lt;em&gt;skip
+to the &lt;a href=&#34;#existing-gcp-account-or-project&#34;&gt;Existing GCP account or
+project&lt;/a&gt;&lt;/em&gt; section below.&lt;/p&gt;
+&lt;p&gt;The BigQuery sandbox is available to anyone with a Google Cloud Platform
+account. If you do not have such an account, you can get started using
+the GCP free trial, &lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;click here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The BigQuery sandbox gives free access to the power of BigQuery subject
+to the sandbox’s
+&lt;a href=&#34;https://cloud.google.com/bigquery/docs/sandbox#limits&#34;&gt;limits&lt;/a&gt;. The
+sandbox allows use of the web UI in the Cloud Console without providing
+a credit card. Use the sandbox without creating a billing account or
+enabling billing for your project.&lt;/p&gt;
+&lt;p&gt;The web UI is the graphical interface used to create and manage BigQuery
+resources and to run SQL queries.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To open the sandbox, click
+&lt;a href=&#34;https://console.cloud.google.com/bigquery&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Accept the terms of service.&lt;/li&gt;
+&lt;li&gt;Before you can use the BigQuery sandbox, you must create a project.
+Follow the prompts to create your new project.&lt;/li&gt;
+&lt;li&gt;After you create your project, the BigQuery web UI will display a
+sandbox banner like the following.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloud.google.com/bigquery/images/sandbox.png&#34; alt=&#34;Sandbox&#34;&gt;&lt;/p&gt;
+&lt;p&gt;While using the sandbox, there is no need to create a billing account
+(supply a credit card), and you do not need to attach a billing account
+to the project.&lt;/p&gt;
+&lt;h3 id=&#34;existing-gcp-account-or-project&#34;&gt;Existing GCP account or project&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;If you have a Google Cloud Platform billing account already&lt;/em&gt;, you can
+choose to either [create a new project] and use it or choose an
+existing project. Unlike the [Bigquery sandbox][Get started with the
+BigQuery sandbox], using a project with billing attached means that 1)
+the account will accrue charges and 2) usage will not be subject to the
+Sandbox limits.&lt;/p&gt;
+&lt;h2 id=&#34;access-the-omicidx-bigquery-dataset&#34;&gt;Access the OmicIDX Bigquery Dataset&lt;/h2&gt;
 &lt;p&gt;Navigate to the &lt;a href=&#34;https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;amp;folder&amp;amp;organizationId&amp;amp;p=isb-cgc-01-0006&amp;amp;d=omicidx&amp;amp;page=dataset&#34;&gt;Bigquery dataset on Google Cloud
 Platform&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Bigquery console is an online portal that allows basic queries and
+data exploration of BigQuery datasets. Upon opening the OmicIDX BigQuery
+link, the console should open with the OmicIDX dataset already available
+in the dataset window.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_landing.png&#34; alt=&#34;The OmicIDX dataset appears in the left &amp;quot;dataset&amp;quot; window.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+The OmicIDX dataset appears in the left “dataset” window.
+&lt;/p&gt;
+&lt;!--html_preserve--&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;“Notice”&lt;/h4&gt;
+After clicking on the OmicIDX dataset in
+the navigation window, “pinning” the OmicIDX dataset will keep it
+available when you come back to Bigquery. You can always click the link
+above again if you forget.
+&lt;/div&gt;
+&lt;!--/html_preserve--&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
 &lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;p&gt;Users interact with Bigquery in one of three ways:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;one-time-setup&#34;&gt;One-time setup&lt;/h3&gt;
-&lt;p&gt;The Bigquery console is an online portal that allows basic queries and
-data exploration of BigQuery datasets. Upon opening the OmicIDX BigQuery
-link, the console should open with the OmicIDX dataset already available
-in the dataset window.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;knitr::include_graphics(&#39;bigquery_landing.png&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_landing.png&#34; alt=&#34;(ref:bigquerylanding)&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
-&lt;p class=&#34;caption&#34;&gt;
-(ref:bigquerylanding)
-&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_landing.png&#34; alt=&#34;bigquery&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTICE&lt;/strong&gt;: To keep the OmicIDX project in the dataset browser, click
-the &lt;strong&gt;pin project&lt;/strong&gt; button.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;knitr::include_graphics(&#39;bigquery_pin.png&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;(ref:pinds)&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
-&lt;p class=&#34;caption&#34;&gt;
-(ref:pinds)
-&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;bigquery&#34;&gt;&lt;/p&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: </title>
+      <link>/docs/bigquery/analytics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/analytics/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: </title>
+      <link>/docs/bigquery/basic-queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/basic-queries/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: </title>
+      <link>/docs/bigquery/save-results/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/save-results/</guid>
+      <description>
+        
+        
+        
       </description>
     </item>
     

@@ -47,6 +47,9 @@ Roy Fielding in 2000 in his [famous dissertation].
 
 [famous dissertation]: https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
+`r blogdown::shortcode('alert', title="Tip", .content='When viewing API results in the browser by, for example, clicking on the examples in this documentation, a browser plugin such as the Chrome JSON Viewer can enhance the experience quite significantly. ')`
+
+[the Chrome JSON Viewer]: https://chrome.google.com/webstore/detail/json-viewer/aimiinbnnkboelefkjlenlgimcabobli
 
 ## Retrieving records by accession
 
