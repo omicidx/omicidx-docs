@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OmicIDX – Bigquery Data Warehouse</title>
-    <link>/docs/bigquery/</link>
+    <link>/omicidx-docs/docs/bigquery/</link>
     <description>Recent content in Bigquery Data Warehouse on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/omicidx-docs/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: What is Bigquery and why should I use it?</title>
-      <link>/docs/bigquery/introduction/</link>
+      <link>/omicidx-docs/docs/bigquery/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/introduction/</guid>
+      <guid>/omicidx-docs/docs/bigquery/introduction/</guid>
       <description>
         
         
@@ -29,10 +29,10 @@
     
     <item>
       <title>Docs: Account Setup</title>
-      <link>/docs/bigquery/setup/</link>
+      <link>/omicidx-docs/docs/bigquery/setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/setup/</guid>
+      <guid>/omicidx-docs/docs/bigquery/setup/</guid>
       <description>
         
         
@@ -111,10 +111,10 @@ your dataset navigator for easy access.
     
     <item>
       <title>Docs: </title>
-      <link>/docs/bigquery/analytics/</link>
+      <link>/omicidx-docs/docs/bigquery/analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/analytics/</guid>
+      <guid>/omicidx-docs/docs/bigquery/analytics/</guid>
       <description>
         
         
@@ -124,10 +124,10 @@ your dataset navigator for easy access.
     
     <item>
       <title>Docs: </title>
-      <link>/docs/bigquery/basic-queries/</link>
+      <link>/omicidx-docs/docs/bigquery/basic-queries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/basic-queries/</guid>
+      <guid>/omicidx-docs/docs/bigquery/basic-queries/</guid>
       <description>
         
         
@@ -137,10 +137,10 @@ your dataset navigator for easy access.
     
     <item>
       <title>Docs: </title>
-      <link>/docs/bigquery/save-results/</link>
+      <link>/omicidx-docs/docs/bigquery/save-results/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/save-results/</guid>
+      <guid>/omicidx-docs/docs/bigquery/save-results/</guid>
       <description>
         
         
