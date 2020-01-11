@@ -17,3 +17,12 @@ http --pretty format 'https://api.omicidx.cancerdatasci.org/sra/runs' \
 	'include_fields==sample.accession' 
 
 ```
+
+### Experiment types
+
+```{bash}
+http --pretty format 'https://api.omicidx.cancerdatasci.org/sra/runs' \
+     'facets==experiment.library_source' \
+	 'size==0' \
+	 'facet_size=5'
+```

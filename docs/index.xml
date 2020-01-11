@@ -1116,10 +1116,20 @@ records).&lt;/p&gt;
 ##         }
 ##     ], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 2409.0, 
+##         &amp;quot;took&amp;quot;: 2313.0, 
 ##         &amp;quot;total&amp;quot;: 8811379
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
+## }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;experiment-types&#34;&gt;Experiment types&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;http --pretty format &#39;https://api.omicidx.cancerdatasci.org/sra/runs&#39; \
+     &#39;facets==experiment.library_source&#39; \
+     &#39;size==0&#39; \
+     &#39;facet_size=5&#39;
+
+## {
+##     &amp;quot;detail&amp;quot;: &amp;quot;Method Not Allowed&amp;quot;
 ## }
 &lt;/code&gt;&lt;/pre&gt;
 
