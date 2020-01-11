@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "/omicidx-docs/"
 title = "The OmicIDX Project"
 
 enableRobotsTXT = true
@@ -65,7 +65,7 @@ anchor = "smart"
 [services]
 [services.googleAnalytics]
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-93043521-2"
+id = "UA-93043521-3"
 
 # Language configuration
 
@@ -93,12 +93,12 @@ copyright = "The OmicIDX team"
 version_menu = "Releases"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy"
+github_repo = "https://github.com/omicidx/omicidx-docx"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+github_project_repo = "https://github.com/omicidx"
 
 # Specify a value here if your content directory is not in your repo's root directory
-github_subdir = "userguide"
+#github_subdir = ""
 
 time_format_blog = "Monday, January 02, 2006"
 time_format_default = "January 2, 2006"
@@ -144,7 +144,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
         desc = "Discussion and help from your fellow users"
 [[params.links.user]]
 	name ="Twitter"
-	url = "https://twitter.com/seandavis12"
+	url = "https://twitter.com/omicidx"
 	icon = "fab fa-twitter"
         desc = "Follow us on Twitter to get the latest news!"
 # [[params.links.user]]

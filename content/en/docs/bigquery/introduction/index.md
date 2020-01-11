@@ -1,0 +1,10 @@
+---
+title: "What is Bigquery and why should I use it?"
+linkTitle: "Introducing Bigquery"
+weight: 5
+description: >
+  Gain familiarity with the Bigquery cloud console when working with the OmicIDX dataset.
+---
+
+The cloud console
+-----------------
