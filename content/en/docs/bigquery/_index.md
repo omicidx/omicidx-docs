@@ -26,7 +26,7 @@ This section is intended to provide working knowledge of:
 
 After working through this section, OmicIDX users will be able to:
 
-- Access to preloaded OmicIDX data in Google Cloud Bigquery
+- Access preloaded OmicIDX data in Google Cloud Bigquery
 - Use the Google Cloud Bigquery Console to view OmicIDX data
 - Perform basic SQL queries of OmicIDX datasets
 - Locate Bigquery documentation

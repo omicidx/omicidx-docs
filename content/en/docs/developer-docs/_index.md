@@ -4,26 +4,47 @@ linkTitle: "For Developers and Contributors"
 weight: 100
 ---
 
-The project is hosted under the Github *omicidx* organization.
+The OmicIDX project has several components available under the [Github
+*omicidx* organization](https://github.com/omicidx). Repositories
+include:
 
--   <https://github.com/omicidx>
-
--   Relationships between projects….
+-   [Parsers](#parsers)
+-   [Builder](#builder)
+-   [REST API](#rest-api)
+-   [Website and documentation](#website-and-documentation)
 
 Parsers
 -------
 
--   <https://github.com/omicidx/omicidx-parsers>
+**URL**: <https://github.com/omicidx/omicidx-parsers>
+
+The *parsers* repository houses parsers that transform omics metadata
+from their original source formats to JSON. Because repositories have
+distinct approaches for exposing their metadata, parsers also includes
+tooling for accessing web APIs or metadata database dumps. The main use
+case for *parsers* is to serve as a library for *builder*. However, it
+may be useful for others who want to parse omicidx metadata from sratch.
 
 Builder
 -------
 
--   <https://github.com/omicidx/omicidx-builder>
+**URL**: <https://github.com/omicidx/omicidx-builder>
 
-Docs
-----
+The *builder* repository contains tooling for building from the original
+source the Bigquery, REST API, and downloadable resources. Most
+functionality is included in a single executable, `omicidx-builder`.
 
--   <https://github.com/omicidx/omicidx-docs>
+*Note*: Some features of builder require a Google Bigquery account.
+
+Website and documentation
+-------------------------
+
+**URL**: <https://github.com/omicidx/omicidx-docs>
+
+The materials for this website are housed in this repository. The
+website itself if built using \[blogdown\] and \[hugo\].
+
+\[blogdown\]: \[hugo\]:
 
 REST API
 --------
