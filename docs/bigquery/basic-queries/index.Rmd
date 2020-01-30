@@ -30,8 +30,6 @@ As I mentioned in my [Opening thoughts][] section, Bigquery discourages `select 
 knitr::include_graphics('bigquery_ui.png')
 ```
 
-`r blogdown::shortcode('alert', title='Notice', .content='After clicking on the OmicIDX dataset in the navigation window, "pinning" the OmicIDX dataset will keep it available when you come back to Bigquery. You can always click the link above again if you forget.')` 
-
 ```{r pinds, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
 knitr::include_graphics('schema_ui.png')
 ```
@@ -43,6 +41,10 @@ knitr::include_graphics('details_ui.png')
 ```{r preview, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
 knitr::include_graphics('preview_ui.png')
 ```
+
+`r blogdown::shortcode('alert', title='Note', .content='For more in-depth step-by-step usage instructions for using the Bigquery web UI, including how to load your own data to Bigquery, see the [Bigquery web UI quickstart](https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui).')` 
+
+
 
 ## First query
 

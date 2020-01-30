@@ -1131,17 +1131,6 @@ what is in the table in order to construct good queries?&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
 The OmicIDX dataset appears in the left “dataset” window.
 &lt;/p&gt;
-&lt;!--html_preserve--&gt;
-&lt;p&gt;
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;“Notice”&lt;/h4&gt;
-After clicking on the OmicIDX dataset in
-the navigation window, “pinning” the OmicIDX dataset will keep it
-available when you come back to Bigquery. You can always click the link
-above again if you forget.
-&lt;/div&gt;
-&lt;!--/html_preserve--&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;schema_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Clicking the “pin” button on the right will keep the OmicIDX dataset in
@@ -1157,6 +1146,17 @@ your dataset navigator for easy access.
 Clicking the “pin” button on the right will keep the OmicIDX dataset in
 your dataset navigator for easy access.
 &lt;/p&gt;
+&lt;!--html_preserve--&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;“Note”&lt;/h4&gt;
+For more in-depth step-by-step usage
+instructions for using the Bigquery web UI, including how to load your
+own data to Bigquery, see the &lt;a href=&#34;https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui&#34;&gt;Bigquery web UI
+quickstart&lt;/a&gt;.
+&lt;/div&gt;
+&lt;!--/html_preserve--&gt;&lt;/p&gt;
 &lt;h2 id=&#34;first-query&#34;&gt;First query&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;query_table_button_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
