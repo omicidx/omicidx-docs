@@ -9,7 +9,9 @@ description: >
 ## Prerequisites
 
 - Using Google Cloud Bigquery requires a Google Cloud [project].
-- Knowledge of basic SQL syntax, while not required, will be beneficial.
+- Knowledge of basic SQL syntax, while not required, will be beneficial. Several primers of the SQL language are available online
+
+[project]: https://console.cloud.google.com/
 
 ## Objectives
 
