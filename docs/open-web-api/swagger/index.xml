@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OmicIDX – OpenAPI interactive documentation</title>
+    <link>/docs/open-web-api/swagger/</link>
+    <description>Recent content in OpenAPI interactive documentation on OmicIDX</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/docs/open-web-api/swagger/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

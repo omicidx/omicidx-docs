@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OmicIDX – Bigquery Data Warehouse</title>
-    <link>/omicidx-docs/docs/bigquery/</link>
+    <link>/docs/bigquery/</link>
     <description>Recent content in Bigquery Data Warehouse on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/omicidx-docs/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/bigquery/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -14,39 +14,35 @@
     
     
     <item>
-      <title>Docs: What is Bigquery and why should I use it?</title>
-      <link>/omicidx-docs/docs/bigquery/introduction/</link>
+      <title>Docs: Getting set up to use OmicIDX</title>
+      <link>/docs/bigquery/setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/bigquery/introduction/</guid>
+      <guid>/docs/bigquery/setup/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;the-cloud-console&#34;&gt;The cloud console&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Account Setup</title>
-      <link>/omicidx-docs/docs/bigquery/setup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/omicidx-docs/docs/bigquery/setup/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;initial-setup&#34;&gt;Initial setup&lt;/h2&gt;
-&lt;h3 id=&#34;no-existing-gcp-account-or-billing&#34;&gt;No existing GCP account or billing&lt;/h3&gt;
-&lt;p&gt;Bigquery is a cloud service run by Google. If you already have a Google
-Cloud Platform (GCP) account and a project with billing enabled, &lt;em&gt;skip
-to the &lt;a href=&#34;#existing-gcp-account-or-project&#34;&gt;Existing GCP account or
-project&lt;/a&gt;&lt;/em&gt; section below.&lt;/p&gt;
+        &lt;p&gt;Bigquery is a cloud service run by Google. To begin using Bigquery, you
+need to establish an account. In this section, we will be ensuring that
+you have some form of access to Bigquery.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-access&#34;&gt;Set up access&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you &lt;em&gt;do not have a Google Cloud Platform account&lt;/em&gt;, move to &lt;a href=&#34;#no-existing-gcp-account&#34;&gt;No
+existing GCP account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;If you &lt;em&gt;have a Google Cloud Platform account&lt;/em&gt;, skip to &lt;a href=&#34;#existing-gcp-account-or-project&#34;&gt;Existing GCP
+account or project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;no-existing-gcp-account&#34;&gt;No existing GCP account&lt;/h3&gt;
+&lt;p&gt;If you do not have such an account, you can &lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;get started using the GCP
+free trial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After creating a new account, there are two options to get going, using
+the free &lt;a href=&#34;https://cloud.google.com/bigquery/docs/sandbox&#34;&gt;Bigquery
+sandbox&lt;/a&gt; (that is
+subject to some quotas and limitd) or creating a GCP project, allowing
+you to use credits or charge to your account.&lt;/p&gt;
 &lt;p&gt;The BigQuery sandbox is available to anyone with a Google Cloud Platform
-account. If you do not have such an account, you can get started using
-the GCP free trial, &lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;click here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The BigQuery sandbox gives free access to the power of BigQuery subject
-to the sandbox’s
+account. It gives free access to the power of BigQuery subject to the
+sandbox’s
 &lt;a href=&#34;https://cloud.google.com/bigquery/docs/sandbox#limits&#34;&gt;limits&lt;/a&gt;. The
 sandbox allows use of the web UI in the Cloud Console without providing
 a credit card. Use the sandbox without creating a billing account or
@@ -54,8 +50,7 @@ enabling billing for your project.&lt;/p&gt;
 &lt;p&gt;The web UI is the graphical interface used to create and manage BigQuery
 resources and to run SQL queries.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;To open the sandbox, click
-&lt;a href=&#34;https://console.cloud.google.com/bigquery&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/bigquery&#34;&gt;Open the sandbox&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Accept the terms of service.&lt;/li&gt;
 &lt;li&gt;Before you can use the BigQuery sandbox, you must create a project.
 Follow the prompts to create your new project.&lt;/li&gt;
@@ -64,15 +59,14 @@ sandbox banner like the following.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cloud.google.com/bigquery/images/sandbox.png&#34; alt=&#34;Sandbox&#34;&gt;&lt;/p&gt;
 &lt;p&gt;While using the sandbox, there is no need to create a billing account
-(supply a credit card), and you do not need to attach a billing account
-to the project.&lt;/p&gt;
+(i.e., no need to supply a credit card), and you do not need to attach a
+billing account to the project.&lt;/p&gt;
 &lt;h3 id=&#34;existing-gcp-account-or-project&#34;&gt;Existing GCP account or project&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;If you have a Google Cloud Platform billing account already&lt;/em&gt;, you can
-choose to either [create a new project] and use it or choose an
-existing project. Unlike the [Bigquery sandbox][Get started with the
-BigQuery sandbox], using a project with billing attached means that 1)
-the account will accrue charges and 2) usage will not be subject to the
-Sandbox limits.&lt;/p&gt;
+choose to either create a new project and use it or choose an existing
+project. Unlike the Bigquery sandbox, using a project with billing
+attached means that 1) the account will accrue charges and 2) usage will
+not be subject to the Sandbox limits.&lt;/p&gt;
 &lt;h2 id=&#34;access-the-omicidx-bigquery-dataset&#34;&gt;Access the OmicIDX Bigquery Dataset&lt;/h2&gt;
 &lt;p&gt;Navigate to the &lt;a href=&#34;https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;amp;folder&amp;amp;organizationId&amp;amp;p=isb-cgc-01-0006&amp;amp;d=omicidx&amp;amp;page=dataset&#34;&gt;Bigquery dataset on Google Cloud
 Platform&lt;/a&gt;.&lt;/p&gt;
@@ -95,26 +89,77 @@ available when you come back to Bigquery. You can always click the link
 above again if you forget.
 &lt;/div&gt;
 &lt;!--/html_preserve--&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_pin.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Clicking the “pin” button on the right will keep the OmicIDX dataset in
 your dataset navigator for easy access.
 &lt;/p&gt;
-&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;p&gt;Users interact with Bigquery in one of three ways:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;At this point, you should have access to Bigquery and the OmicIDX
+dataset. In the next section, we will explore using the web UI to
+explore the OmicIDX dataset.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: </title>
-      <link>/omicidx-docs/docs/bigquery/analytics/</link>
+      <title>Docs: Start exploring OmicIDX on the Bigquery web console</title>
+      <link>/docs/bigquery/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/bigquery/analytics/</guid>
+      <guid>/docs/bigquery/introduction/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;what-makes-bigquery-what-it-is&#34;&gt;What makes Bigquery what it is?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Bigquery most closely resembles a &lt;strong&gt;[relational database management
+system]&lt;/strong&gt;. Roughly speaking, the data in Bigquery are stored as
+records where each record can be thought of as a set of values for a
+number of pre-defined columns. An individual column can contain
+complex or nested data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bigquery is a &lt;strong&gt;cloud-based&lt;/strong&gt;. Cloud-based implies that the system
+is supported and maintained by someone else, in this case, Google.
+In addition, the Bigquery system scales automatically and
+transparently and can adjust to workloads of nearly arbitrary size.
+From our point-of-view, Google provides us with a database system
+that allows us to load, query, modify, and delete data as we see
+fit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bigquery &lt;strong&gt;stores data as columns&lt;/strong&gt;. This has implications for
+database efficiency and design, but for us, this means that we can
+reduce costs and potentially increase performance of our queries by
+limiting those queries to only the columns we need. In other words,
+instead of &lt;code&gt;SELECT * FROM TABLE&lt;/code&gt;, we should focus queries to the
+columns of interest (&lt;code&gt;SELECT col1, col2 FROM TABLE&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bigquery &lt;strong&gt;benefits from denormalization&lt;/strong&gt;. The implications of #3
+lead to a desired schema that includes repeated values rather than
+splitting those values into separate tables.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For some more interesting facts and tips on using Bigquery, see &lt;a href=&#34;https://cloud.google.com/blog/products/gcp/busting-12-myths-about-bigquery&#34;&gt;“Twelve
+Truths about
+Bigquery”&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;accessing-omicidx&#34;&gt;Accessing OmicIDX&lt;/h2&gt;
+&lt;h3 id=&#34;the-bigquery-cloud-console&#34;&gt;The Bigquery cloud console&lt;/h3&gt;
+&lt;h3 id=&#34;the-bq-command-line&#34;&gt;The &lt;code&gt;bq&lt;/code&gt; command line&lt;/h3&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Query the OmicIDX Bigquery tables</title>
+      <link>/docs/bigquery/basic-queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/bigquery/basic-queries/</guid>
       <description>
         
         
@@ -123,11 +168,11 @@ your dataset navigator for easy access.
     </item>
     
     <item>
-      <title>Docs: </title>
-      <link>/omicidx-docs/docs/bigquery/basic-queries/</link>
+      <title>Docs: Export data and query results</title>
+      <link>/docs/bigquery/save-results/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/bigquery/basic-queries/</guid>
+      <guid>/docs/bigquery/save-results/</guid>
       <description>
         
         
@@ -136,11 +181,11 @@ your dataset navigator for easy access.
     </item>
     
     <item>
-      <title>Docs: </title>
-      <link>/omicidx-docs/docs/bigquery/save-results/</link>
+      <title>Docs: Advanced use cases</title>
+      <link>/docs/bigquery/analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/bigquery/save-results/</guid>
+      <guid>/docs/bigquery/analytics/</guid>
       <description>
         
         
