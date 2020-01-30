@@ -1,7 +1,65 @@
 ---
 title: "Query the OmicIDX Bigquery tables"
-linkTitle: "Query the OmicIDX tables"
+linkTitle: "Query OmicIDX with SQL"
 weight: 20
 description: >
   Use standard SQL queries to explore omics metadata.
 ---
+
+In this section, we will introduce SQL query concepts mainly through
+examples. Here, we assume a basic understanding of SQL; there are many
+good online tutorials for getting up-to-speed.
+
+## Opening thoughts
+
+Bigquery uses standard SQL, but it is not a traditional relational
+database system. It is a columnar database, meaning that each column
+of data is stored separately from the other columns. This has a couple
+of implications. The first is that queries will generally be most
+efficient if you can specify which columns you want returned (i.e.,
+**no `select * from ...` queries!**). The second is that limiting
+queries to return only required columns will *reduce costs* since
+**Bigquery charges based on the amount of data scanned** in a query.
+
+## Table exploration
+
+As I mentioned in my [Opening thoughts][] section, Bigquery discourages `select *` queries. So, how can we get a sense of what is in the table in order to construct good queries?
+
+
+```{r bigquerylanding, fig.cap='The OmicIDX dataset appears in the left "dataset" window.', out.width='100%', echo=FALSE}
+knitr::include_graphics('bigquery_ui.png')
+```
+
+`r blogdown::shortcode('alert', title='Notice', .content='After clicking on the OmicIDX dataset in the navigation window, "pinning" the OmicIDX dataset will keep it available when you come back to Bigquery. You can always click the link above again if you forget.')` 
+
+```{r pinds, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
+knitr::include_graphics('schema_ui.png')
+```
+
+```{r details, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
+knitr::include_graphics('details_ui.png')
+```
+
+```{r preview, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
+knitr::include_graphics('preview_ui.png')
+```
+
+## First query
+
+```{r query-table-button, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
+knitr::include_graphics('query_table_button_ui.png')
+```
+
+```{r sample-org-query, fig.cap='Clicking the "pin" button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. ', out.width='100%', echo=FALSE}
+knitr::include_graphics('sample_organism_query_ui.png')
+```
+
+
+
+```sql
+SELECT count(organism) as number_of_samples, organism
+FROM `isb-cgc-01-0006.omicidx.sra_sample` 
+GROUP BY organism 
+ORDER BY number_of_samples DESC
+LIMIT 100
+```

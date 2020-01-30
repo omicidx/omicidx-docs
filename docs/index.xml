@@ -1111,7 +1111,70 @@ records).&lt;/p&gt;
       <description>
         
         
-        
+        &lt;p&gt;In this section, we will introduce SQL query concepts mainly through
+examples. Here, we assume a basic understanding of SQL; there are many
+good online tutorials for getting up-to-speed.&lt;/p&gt;
+&lt;h2 id=&#34;opening-thoughts&#34;&gt;Opening thoughts&lt;/h2&gt;
+&lt;p&gt;Bigquery uses standard SQL, but it is not a traditional relational
+database system. It is a columnar database, meaning that each column of
+data is stored separately from the other columns. This has a couple of
+implications. The first is that queries will generally be most efficient
+if you can specify which columns you want returned (i.e., &lt;strong&gt;no
+&lt;code&gt;select * from ...&lt;/code&gt; queries!&lt;/strong&gt;). The second is that limiting queries to
+return only required columns will &lt;em&gt;reduce costs&lt;/em&gt; since &lt;strong&gt;Bigquery
+charges based on the amount of data scanned&lt;/strong&gt; in a query.&lt;/p&gt;
+&lt;h2 id=&#34;table-exploration&#34;&gt;Table exploration&lt;/h2&gt;
+&lt;p&gt;As I mentioned in my &lt;a href=&#34;#opening-thoughts&#34;&gt;Opening thoughts&lt;/a&gt; section,
+Bigquery discourages &lt;code&gt;select *&lt;/code&gt; queries. So, how can we get a sense of
+what is in the table in order to construct good queries?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;bigquery_ui.png&#34; alt=&#34;The OmicIDX dataset appears in the left &amp;quot;dataset&amp;quot; window.&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+The OmicIDX dataset appears in the left “dataset” window.
+&lt;/p&gt;
+&lt;!--html_preserve--&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;“Notice”&lt;/h4&gt;
+After clicking on the OmicIDX dataset in
+the navigation window, “pinning” the OmicIDX dataset will keep it
+available when you come back to Bigquery. You can always click the link
+above again if you forget.
+&lt;/div&gt;
+&lt;!--/html_preserve--&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;schema_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;details_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;preview_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;h2 id=&#34;first-query&#34;&gt;First query&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;query_table_button_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;sample_organism_query_ui.png&#34; alt=&#34;Clicking the &amp;quot;pin&amp;quot; button on the right will keep the OmicIDX dataset in your dataset navigator for easy access. &#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Clicking the “pin” button on the right will keep the OmicIDX dataset in
+your dataset navigator for easy access.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT count(organism) as number_of_samples, organism
+FROM `isb-cgc-01-0006.omicidx.sra_sample` 
+GROUP BY organism 
+ORDER BY number_of_samples DESC
+LIMIT 100
+&lt;/code&gt;&lt;/pre&gt;
+
       </description>
     </item>
     
