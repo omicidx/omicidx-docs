@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OmicIDX – The OmicIDX Web API</title>
-    <link>/docs/open-web-api/</link>
+    <link>/omicidx-docs/docs/open-web-api/</link>
     <description>Recent content in The OmicIDX Web API on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/docs/open-web-api/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/omicidx-docs/docs/open-web-api/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: What is a web API?</title>
-      <link>/docs/open-web-api/web-api-overview/</link>
+      <link>/omicidx-docs/docs/open-web-api/web-api-overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/web-api-overview/</guid>
       <description>
         
         
@@ -29,10 +29,10 @@
     
     <item>
       <title>Docs: Background</title>
-      <link>/docs/open-web-api/rest-api/</link>
+      <link>/omicidx-docs/docs/open-web-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/rest-api/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/rest-api/</guid>
       <description>
         
         
@@ -963,10 +963,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: Extended Examples and Use Cases</title>
-      <link>/docs/open-web-api/examples/</link>
+      <link>/omicidx-docs/docs/open-web-api/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/examples/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/examples/</guid>
       <description>
         
         
@@ -1042,10 +1042,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: OpenAPI interactive documentation</title>
-      <link>/docs/open-web-api/swagger/</link>
+      <link>/omicidx-docs/docs/open-web-api/swagger/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/swagger/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/swagger/</guid>
       <description>
         
         

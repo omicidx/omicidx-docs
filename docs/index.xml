@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OmicIDX – Welcome to OmicIDX</title>
-    <link>/docs/</link>
+    <link>/omicidx-docs/docs/</link>
     <description>Recent content in Welcome to OmicIDX on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/omicidx-docs/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: What is a web API?</title>
-      <link>/docs/open-web-api/web-api-overview/</link>
+      <link>/omicidx-docs/docs/open-web-api/web-api-overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/web-api-overview/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/web-api-overview/</guid>
       <description>
         
         
@@ -29,10 +29,10 @@
     
     <item>
       <title>Docs: Getting set up to use OmicIDX</title>
-      <link>/docs/bigquery/setup/</link>
+      <link>/omicidx-docs/docs/bigquery/setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/setup/</guid>
+      <guid>/omicidx-docs/docs/bigquery/setup/</guid>
       <description>
         
         
@@ -118,10 +118,10 @@ explore the OmicIDX dataset.&lt;/p&gt;
     
     <item>
       <title>Docs: Start exploring OmicIDX on the Bigquery web console</title>
-      <link>/docs/bigquery/introduction/</link>
+      <link>/omicidx-docs/docs/bigquery/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/introduction/</guid>
+      <guid>/omicidx-docs/docs/bigquery/introduction/</guid>
       <description>
         
         
@@ -170,10 +170,10 @@ Bigquery”&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>Docs: Background</title>
-      <link>/docs/open-web-api/rest-api/</link>
+      <link>/omicidx-docs/docs/open-web-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/rest-api/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/rest-api/</guid>
       <description>
         
         
@@ -1104,10 +1104,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: Query the OmicIDX Bigquery tables</title>
-      <link>/docs/bigquery/basic-queries/</link>
+      <link>/omicidx-docs/docs/bigquery/basic-queries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/basic-queries/</guid>
+      <guid>/omicidx-docs/docs/bigquery/basic-queries/</guid>
       <description>
         
         
@@ -1117,10 +1117,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: Extended Examples and Use Cases</title>
-      <link>/docs/open-web-api/examples/</link>
+      <link>/omicidx-docs/docs/open-web-api/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/open-web-api/examples/</guid>
+      <guid>/omicidx-docs/docs/open-web-api/examples/</guid>
       <description>
         
         
@@ -1196,10 +1196,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: Export data and query results</title>
-      <link>/docs/bigquery/save-results/</link>
+      <link>/omicidx-docs/docs/bigquery/save-results/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/save-results/</guid>
+      <guid>/omicidx-docs/docs/bigquery/save-results/</guid>
       <description>
         
         
@@ -1209,10 +1209,10 @@ records).&lt;/p&gt;
     
     <item>
       <title>Docs: Advanced use cases</title>
-      <link>/docs/bigquery/analytics/</link>
+      <link>/omicidx-docs/docs/bigquery/analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/bigquery/analytics/</guid>
+      <guid>/omicidx-docs/docs/bigquery/analytics/</guid>
       <description>
         
         
