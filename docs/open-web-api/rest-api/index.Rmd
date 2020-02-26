@@ -1,9 +1,9 @@
 ---
-title: "Background"
-linkTitle: "Background"
+title: "Basic web API usage"
+linkTitle: "Basic usage"
 weight: 10
 description: >
-  Using the RESTful OmicIDX to access and analyze omics data resources
+  Use the RESTful OmicIDX to access and analyze omics data resources.
 ---
 
 ## RESTful Concepts
@@ -362,5 +362,8 @@ The number of records can be tuned using `size=....` (up to 999 records).
 
 ## Aggregation and basic analytics
 
-
-
+- https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&facets=library_source
+- https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&facets=library_strategy&facet_size=30
+- https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&facets=sample.taxon_id
+- https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&facets=sample.attributes.tag&facet_size=100
+- https://api.omicidx.cancerdatasci.org/biosample/samples?size=0&facets=attribute_recs.harmonized_name&facet_size=100

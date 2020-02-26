@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OmicIDX – The OmicIDX Web API</title>
-    <link>/omicidx-docs/docs/open-web-api/</link>
+    <link>/docs/open-web-api/</link>
     <description>Recent content in The OmicIDX Web API on OmicIDX</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/omicidx-docs/docs/open-web-api/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/open-web-api/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -14,25 +14,11 @@
     
     
     <item>
-      <title>Docs: What is a web API?</title>
-      <link>/omicidx-docs/docs/open-web-api/web-api-overview/</link>
+      <title>Docs: Basic web API usage</title>
+      <link>/docs/open-web-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/open-web-api/web-api-overview/</guid>
-      <description>
-        
-        
-        &lt;p&gt;This is a test.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Background</title>
-      <link>/omicidx-docs/docs/open-web-api/rest-api/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/omicidx-docs/docs/open-web-api/rest-api/</guid>
+      <guid>/docs/open-web-api/rest-api/</guid>
       <description>
         
         
@@ -200,7 +186,7 @@ tool&lt;/a&gt; is a friendlier tool for querying web APIs.
 ##     ], 
 ##     &amp;quot;insdc&amp;quot;: true, 
 ##     &amp;quot;lastupdate&amp;quot;: &amp;quot;2017-09-17T10:26:44&amp;quot;, 
-##     &amp;quot;mean_bases_per_run&amp;quot;: 14030484634.422861, 
+##     &amp;quot;mean_bases_per_run&amp;quot;: 14030484634.42286, 
 ##     &amp;quot;published&amp;quot;: &amp;quot;2014-02-14T22:56:17&amp;quot;, 
 ##     &amp;quot;pubmed_ids&amp;quot;: [], 
 ##     &amp;quot;received&amp;quot;: &amp;quot;2012-05-04T15:43:05&amp;quot;, 
@@ -360,7 +346,7 @@ pprint.pprint(response.json())
 ##                  {&#39;id&#39;: &#39;phs000424&#39;, &#39;namespace&#39;: &#39;dbGaP&#39;}],
 ##  &#39;insdc&#39;: True,
 ##  &#39;lastupdate&#39;: &#39;2017-09-17T10:26:44&#39;,
-##  &#39;mean_bases_per_run&#39;: 14030484634.422861,
+##  &#39;mean_bases_per_run&#39;: 14030484634.42286,
 ##  &#39;published&#39;: &#39;2014-02-14T22:56:17&#39;,
 ##  &#39;pubmed_ids&#39;: [],
 ##  &#39;received&#39;: &#39;2012-05-04T15:43:05&#39;,
@@ -633,7 +619,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&#3
 ##         }
 ##     ], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 1, 
+##         &amp;quot;took&amp;quot;: 4899, 
 ##         &amp;quot;total&amp;quot;: 16
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -650,7 +636,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP033351/samples&#3
 ##     &amp;quot;cursor&amp;quot;: null, 
 ##     &amp;quot;hits&amp;quot;: [], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 0, 
+##         &amp;quot;took&amp;quot;: 4, 
 ##         &amp;quot;total&amp;quot;: 16
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -670,7 +656,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#3
 ##     &amp;quot;cursor&amp;quot;: null, 
 ##     &amp;quot;hits&amp;quot;: [], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 0, 
+##         &amp;quot;took&amp;quot;: 36, 
 ##         &amp;quot;total&amp;quot;: 14249
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -742,166 +728,9 @@ is not currently a parameter that can be tweeked).&lt;/li&gt;
 http &#39;https://api.omicidx.cancerdatasci.org/_mapping/study&#39; \
     --pretty format
 
-## [
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;BioProject&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;abstract&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;accession&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;alias&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;attributes.tag&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;attributes.value&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;keyword&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;broker_name&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;center_name&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;description&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;experiment_count&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;identifiers.id&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: true, 
-##         &amp;quot;path&amp;quot;: &amp;quot;identifiers&amp;quot;, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;identifiers.namespace&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: true, 
-##         &amp;quot;path&amp;quot;: &amp;quot;identifiers&amp;quot;, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;insdc&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;boolean&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;lastupdate&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;mean_bases_per_run&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;float&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;published&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;pubmed_ids&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;received&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;date&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;run_count&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;sample_count&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;status&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;study_type&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;taxon_ids&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;title&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: true, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;total_bases&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;long&amp;quot;
-##     }, 
-##     {
-##         &amp;quot;field&amp;quot;: &amp;quot;total_spots&amp;quot;, 
-##         &amp;quot;keyword&amp;quot;: false, 
-##         &amp;quot;nested&amp;quot;: false, 
-##         &amp;quot;type&amp;quot;: &amp;quot;long&amp;quot;
-##     }
-## ]
+## {
+##     &amp;quot;detail&amp;quot;: &amp;quot;Not Found&amp;quot;
+## }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;including-or-excluding-specific-fields-from-results&#34;&gt;Including or excluding specific fields from results&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;# curl -s &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples?size=5&amp;amp;include_fields=accession&amp;amp;include_fields=title&#39;
@@ -935,7 +764,7 @@ http &#39;https://api.omicidx.cancerdatasci.org/sra/studies/SRP012682/samples&#3
 ##         }
 ##     ], 
 ##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 8, 
+##         &amp;quot;took&amp;quot;: 14, 
 ##         &amp;quot;total&amp;quot;: 14249
 ##     }, 
 ##     &amp;quot;success&amp;quot;: true
@@ -957,95 +786,23 @@ For example, to find all human RNA-seq experiments:&lt;/li&gt;
 &lt;p&gt;The number of records can be tuned using &lt;code&gt;size=....&lt;/code&gt; (up to 999
 records).&lt;/p&gt;
 &lt;h2 id=&#34;aggregation-and-basic-analytics&#34;&gt;Aggregation and basic analytics&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Extended Examples and Use Cases</title>
-      <link>/omicidx-docs/docs/open-web-api/examples/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/omicidx-docs/docs/open-web-api/examples/</guid>
-      <description>
-        
-        
-        &lt;h3 id=&#34;id-mapping&#34;&gt;ID mapping&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;http --pretty format &#39;https://api.omicidx.cancerdatasci.org/sra/runs&#39; \
-    &#39;size==3&#39; \
-    &#39;include_fields==accession&#39; \
-    &#39;include_fields==experiment.accession&#39; \
-    &#39;include_fields==study.accession&#39; \
-    &#39;include_fields==sample.accession&#39; 
-
-## {
-##     &amp;quot;cursor&amp;quot;: &amp;quot;X2lkfHxhc2N8fHx8RFJSMDAwMDAz&amp;quot;, 
-##     &amp;quot;facets&amp;quot;: [], 
-##     &amp;quot;hits&amp;quot;: [
-##         {
-##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000001&amp;quot;, 
-##             &amp;quot;experiment&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000001&amp;quot;
-##             }, 
-##             &amp;quot;sample&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000001&amp;quot;
-##             }, 
-##             &amp;quot;study&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000001&amp;quot;
-##             }
-##         }, 
-##         {
-##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000002&amp;quot;, 
-##             &amp;quot;experiment&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000002&amp;quot;
-##             }, 
-##             &amp;quot;sample&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000002&amp;quot;
-##             }, 
-##             &amp;quot;study&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000002&amp;quot;
-##             }
-##         }, 
-##         {
-##             &amp;quot;accession&amp;quot;: &amp;quot;DRR000003&amp;quot;, 
-##             &amp;quot;experiment&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRX000003&amp;quot;
-##             }, 
-##             &amp;quot;sample&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRS000003&amp;quot;
-##             }, 
-##             &amp;quot;study&amp;quot;: {
-##                 &amp;quot;accession&amp;quot;: &amp;quot;DRP000003&amp;quot;
-##             }
-##         }
-##     ], 
-##     &amp;quot;stats&amp;quot;: {
-##         &amp;quot;took&amp;quot;: 2313.0, 
-##         &amp;quot;total&amp;quot;: 8811379
-##     }, 
-##     &amp;quot;success&amp;quot;: true
-## }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;experiment-types&#34;&gt;Experiment types&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;http --pretty format &#39;https://api.omicidx.cancerdatasci.org/sra/runs&#39; \
-     &#39;facets==experiment.library_source&#39; \
-     &#39;size==0&#39; \
-     &#39;facet_size=5&#39;
-
-## {
-##     &amp;quot;detail&amp;quot;: &amp;quot;Method Not Allowed&amp;quot;
-## }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=library_source&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=library_source&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=library_strategy&amp;amp;facet_size=30&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=library_strategy&amp;amp;facet_size=30&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=sample.taxon_id&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=sample.taxon_id&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=sample.attributes.tag&amp;amp;facet_size=100&#34;&gt;https://api.omicidx.cancerdatasci.org/sra/experiments?size=0&amp;amp;facets=sample.attributes.tag&amp;amp;facet_size=100&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.omicidx.cancerdatasci.org/biosample/samples?size=0&amp;amp;facets=attribute_recs.harmonized_name&amp;amp;facet_size=100&#34;&gt;https://api.omicidx.cancerdatasci.org/biosample/samples?size=0&amp;amp;facets=attribute_recs.harmonized_name&amp;amp;facet_size=100&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: OpenAPI interactive documentation</title>
-      <link>/omicidx-docs/docs/open-web-api/swagger/</link>
+      <link>/docs/open-web-api/swagger/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/omicidx-docs/docs/open-web-api/swagger/</guid>
+      <guid>/docs/open-web-api/swagger/</guid>
       <description>
         
         
